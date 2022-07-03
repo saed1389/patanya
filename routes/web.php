@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\DistrictController;
 use App\Http\Controllers\Backend\SubDistrictController;
+use App\Http\Controllers\Backend\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,6 @@ Route::post('/store/subdistrict', [SubDistrictController::class, 'StoreSubDistri
 Route::get('/edit/subdistrict/{id}', [SubDistrictController::class, 'EditSubDistrict'])->name('edit.subdistrict');
 Route::post('/update/subdistrict/{id}', [SubDistrictController::class, 'UpdateSubDistrict'])->name('update.subdistrict');
 Route::get('/delete/subdistrict/{id}', [SubDistrictController::class, 'DeleteSubDistrict'])->name('delete.subdistrict');
+
+// Admin Posts All Routes
+Route::get('/createpost', [PostController::class, 'Create'])->name('create.post');
