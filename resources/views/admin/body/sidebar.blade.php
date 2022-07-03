@@ -2,26 +2,16 @@
     <div class="container-fluid">
         <!-- sidebar: title-->
         <div class="title-text d-flex align-items-center mb-4 mt-1">
-            <h4 class="sidebar-title mb-0 flex-grow-1"><span class="sm-txt">I</span><span>nventory</span></h4>
+            <h4 class="sidebar-title mb-0 flex-grow-1"><span class="sm-txt">P</span><span>ataniya</span></h4>
         </div>
         <!-- sidebar: Create new -->
-        <div class="create-new py-3 mb-2">
-            <div class="d-flex">
-                <select class="form-select rounded-pill me-1">
-                    <option selected>Select Project</option>
-                    <option value="1">Luno University</option>
-                    <option value="2">Book Manager</option>
-                    <option value="3">Luno Sass App</option>
-                </select>
-                <button class="btn bg-primary text-white rounded-circle" data-bs-toggle="modal" data-bs-target="#CreateNew" type="button"><i class="fa fa-plus"></i></button>
-            </div>
-        </div>
+
         <!-- sidebar: menu list -->
         <div class="main-menu flex-grow-1">
             <ul class="menu-list">
                 <li class="divider py-2 lh-sm"><span class="small">MAIN</span><br> <small class="text-muted">Unique dashboard designs </small></li>
                 <li>
-                    <a class="m-link active" href="index.html">
+                    <a class="m-link active" href="{{ route('dashboard') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
                             <path class="fill-secondary" fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
@@ -35,24 +25,13 @@
                             <path d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1H5.5z" />
                             <path class="fill-secondary" d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                         </svg>
-                        <span class="ms-2">Applications</span>
+                        <span class="ms-2">Categories</span>
                         <span class="arrow fa fa-angle-right ms-auto text-end"></span>
                     </a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Applications">
-                        <li><a class="ms-link" href="app-calendar.html">Calendar</a></li>
-                        <li><a class="ms-link" href="app-calendar-tui.html">tui Calendar</a></li>
-                        <li><a class="ms-link" href="app-email.html">Email App</a></li>
-                        <li><a class="ms-link" href="app-chat.html">Chat app</a></li>
-                        <li><a class="ms-link" href="app-campaigns.html">Campaigns</a></li>
-                        <li><a class="ms-link" href="app-social.html">Social App</a></li>
-                        <li><a class="ms-link" href="app-file-manager.html">File Manager</a></li>
-                        <li><a class="ms-link" href="app-todo.html">Todo App</a></li>
-                        <li><a class="ms-link" href="app-contacts.html">Contacts</a></li>
-                        <li><a class="ms-link" href="app-tasks.html">Tasks</a></li>
-                        <li><a class="ms-link" href="app-project.html">Projects</a></li>
-                        <li><a class="ms-link" href="app-jkanban.html">Kanban Board</a></li>
-                        <li><a class="ms-link" href="app-blog.html">Blog</a></li>
+                        <li><a class="ms-link" href="{{ route('categories') }}">Category</a></li>
+                        <li><a class="ms-link" href="{{ route('subcategories') }}">SubCategory</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">
@@ -61,15 +40,13 @@
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M2 1C1.46957 1 0.960859 1.21071 0.585786 1.58579C0.210714 1.96086 0 2.46957 0 3L0 13C0 13.5304 0.210714 14.0391 0.585786 14.4142C0.960859 14.7893 1.46957 15 2 15H14C14.5304 15 15.0391 14.7893 15.4142 14.4142C15.7893 14.0391 16 13.5304 16 13V3C16 2.46957 15.7893 1.96086 15.4142 1.58579C15.0391 1.21071 14.5304 1 14 1H2ZM1 3C1 2.73478 1.10536 2.48043 1.29289 2.29289C1.48043 2.10536 1.73478 2 2 2H14C14.2652 2 14.5196 2.10536 14.7071 2.29289C14.8946 2.48043 15 2.73478 15 3V13C15 13.2652 14.8946 13.5196 14.7071 13.7071C14.5196 13.8946 14.2652 14 14 14H2C1.73478 14 1.48043 13.8946 1.29289 13.7071C1.10536 13.5196 1 13.2652 1 13V3ZM2 5.5C2 5.36739 2.05268 5.24021 2.14645 5.14645C2.24021 5.05268 2.36739 5 2.5 5H6C6.13261 5 6.25979 5.05268 6.35355 5.14645C6.44732 5.24021 6.5 5.36739 6.5 5.5C6.5 5.63261 6.44732 5.75979 6.35355 5.85355C6.25979 5.94732 6.13261 6 6 6H2.5C2.36739 6 2.24021 5.94732 2.14645 5.85355C2.05268 5.75979 2 5.63261 2 5.5ZM2 8.5C2 8.36739 2.05268 8.24021 2.14645 8.14645C2.24021 8.05268 2.36739 8 2.5 8H6C6.13261 8 6.25979 8.05268 6.35355 8.14645C6.44732 8.24021 6.5 8.36739 6.5 8.5C6.5 8.63261 6.44732 8.75979 6.35355 8.85355C6.25979 8.94732 6.13261 9 6 9H2.5C2.36739 9 2.24021 8.94732 2.14645 8.85355C2.05268 8.75979 2 8.63261 2 8.5ZM2 10.5C2 10.3674 2.05268 10.2402 2.14645 10.1464C2.24021 10.0527 2.36739 10 2.5 10H6C6.13261 10 6.25979 10.0527 6.35355 10.1464C6.44732 10.2402 6.5 10.3674 6.5 10.5C6.5 10.6326 6.44732 10.7598 6.35355 10.8536C6.25979 10.9473 6.13261 11 6 11H2.5C2.36739 11 2.24021 10.9473 2.14645 10.8536C2.05268 10.7598 2 10.6326 2 10.5Z" />
                             <path class="fill-secondary" d="M8.5 11C8.5 11 8 11 8 10.5C8 10 8.5 8.5 11 8.5C13.5 8.5 14 10 14 10.5C14 11 13.5 11 13.5 11H8.5ZM11 8C11.3978 8 11.7794 7.84196 12.0607 7.56066C12.342 7.27936 12.5 6.89782 12.5 6.5C12.5 6.10218 12.342 5.72064 12.0607 5.43934C11.7794 5.15804 11.3978 5 11 5C10.6022 5 10.2206 5.15804 9.93934 5.43934C9.65804 5.72064 9.5 6.10218 9.5 6.5C9.5 6.89782 9.65804 7.27936 9.93934 7.56066C10.2206 7.84196 10.6022 8 11 8V8Z" />
                         </svg>
-                        <span class="ms-2">Account</span>
+                        <span class="ms-2">District</span>
                         <span class="arrow fa fa-angle-right ms-auto text-end"></span>
                     </a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Account">
-                        <li><a class="ms-link" href="account-settings.html">Settings</a></li>
-                        <li><a class="ms-link" href="account-invoices.html">Invoice List</a></li>
-                        <li><a class="ms-link" href="account-create-invoice.html">Create Invoices</a></li>
-                        <li><a class="ms-link" href="account-billing.html">Billing</a></li>
+                        <li><a class="ms-link" href="{{ route('district') }}">District</a></li>
+                        <li><a class="ms-link" href="{{ route('subdistrict') }}">SubDistrict</a></li>
                     </ul>
                 </li>
                 <li>
