@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-title">
-                        <h4>Update Category</h4>
+                        <h4>Update Website Link</h4>
                     </div>
                 </div>
             </div>
@@ -14,33 +14,26 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form class="row g-3 maskking-form" method="post" action="{{ route('update.category', $category->id) }}">
+                        <form class="row g-3 maskking-form" method="post" action="{{ route('update.website', $website->id) }}">
                             @csrf
                             <div class="col-12">
                                 <span class="float-label">
-                                  <input type="text" name="category_en" class="form-control form-control-lg" id="category_en" value="{{ $category->category_en }}">
-                                  <label class="form-label" for="category_en">Category English</label>
+                                  <input type="text" name="website_name" class="form-control form-control-lg" id="website_name" value="{{ $website->website_name }}">
+                                  <label class="form-label" for="website_name">Website Name</label>
                                 </span>
-                                @error('category_en')
+                                @error('website_name')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-12">
                                 <span class="float-label">
-                                  <input type="text" name="category_tr" class="form-control form-control-lg" id="category_tr" value="{{ $category->category_tr }}">
-                                  <label class="form-label" for="category_tr">Category Turkish</label>
+                                  <input type="text" name="website_link" class="form-control form-control-lg" id="website_link" value="{{ $website->website_link }}">
+                                  <label class="form-label" for="website_link">Website Name</label>
                                 </span>
-                                @error('category_tr')
+                                @error('website_link')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                            </div>
-
-                            <div class="col-12">
-                                <span class="float-label">
-                                  <input type="text" name="category_ru" class="form-control form-control-lg" id="category_ru" value="{{ $category->category_ru }}">
-                                  <label class="form-label" for="category_ru">Category Russian</label>
-                                </span>
                             </div>
 
                             <div class="col-12">
