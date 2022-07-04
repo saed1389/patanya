@@ -62,5 +62,15 @@ Route::get('/edit/subdistrict/{id}', [SubDistrictController::class, 'EditSubDist
 Route::post('/update/subdistrict/{id}', [SubDistrictController::class, 'UpdateSubDistrict'])->name('update.subdistrict');
 Route::get('/delete/subdistrict/{id}', [SubDistrictController::class, 'DeleteSubDistrict'])->name('delete.subdistrict');
 
+// Json Data For Category And District
+Route::get('/get/subcategory/{category_id}', [PostController::class, 'GetSubCategory']);
+Route::get('/get/subdistrict/{district_id}', [PostController::class, 'GetSubDistrict']);
+
 // Admin Posts All Routes
+Route::get('/allpost', [PostController::class, 'Index'])->name('all.post');
 Route::get('/createpost', [PostController::class, 'Create'])->name('create.post');
+Route::post('/store/post', [PostController::class, 'StorePost'])->name('store.post');
+Route::get('/edit/post/{id}', [PostController::class, 'EditPost'])->name('edit.post');
+Route::post('/update/post/{id}', [PostController::class, 'UpdatePost'])->name('update.post');
+Route::get('/delete/post/{id}', [PostController::class, 'DeletePost'])->name('delete.post');
+

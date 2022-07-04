@@ -61,7 +61,7 @@
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Post">
                         <li><a class="ms-link" href="{{ route('create.post') }}">Add Post</a></li>
-                        <li><a class="ms-link" href="">All Posts</a></li>
+                        <li><a class="ms-link" href="{{ route('all.post') }}">All Posts</a></li>
                     </ul>
                 </li>
                 <li>
