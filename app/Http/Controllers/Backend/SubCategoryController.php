@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Str;
 
 class SubCategoryController extends Controller
 {
@@ -31,6 +32,7 @@ class SubCategoryController extends Controller
         ]);
 
         $data = array();
+        $data['slug'] = Str::of($request->subcategory_tr)->slug('-');
         $data['subcategory_en'] = $request->subcategory_en;
         $data['subcategory_tr'] = $request->subcategory_tr;
         $data['subcategory_ru'] = $request->subcategory_ru;
@@ -55,6 +57,7 @@ class SubCategoryController extends Controller
     public function UpdateSubCategory(Request $request, $id) {
 
         $data = array();
+        $data['slug'] = Str::of($request->subcategory_tr)->slug('-');
         $data['subcategory_en'] = $request->subcategory_en;
         $data['subcategory_tr'] = $request->subcategory_tr;
         $data['subcategory_ru'] = $request->subcategory_ru;

@@ -1,0 +1,67 @@
+<!-- footer social list start-->
+<section class="ts-footer-social-list section-bg" >
+    <div class="container">
+        <div class="row" >
+            <div class="col-lg-12" style="background-color: #DF6D6C;padding-right: 50px; padding-left: 50px; padding-top: 15px; padding-bottom: 15px;">
+                <div class="col-lg-6 pull-right">
+                    <a href="" class="btn btn-primary" style="width: 100%;">GENÇLER KONUŞUYOR</a>
+                </div>
+                <div class="col-lg-6">
+                    <a href="" class="btn btn-primary" style="width: 100%">GENÇLER SORUYOR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- footer social list end-->
+
+<!-- newslater start -->
+<section class="section-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="nav-menus-wrapper clearfix">
+                    <ul class="nav-menu">
+                        <li><a href="#">GÜNDEM</a></li>
+                        <li><a href="#">YURTTAN HABERLER</a></li>
+                        <li><a href="#">DÜNYA</a></li>
+                        <li><a href="#">TÜRKİYE</a></li>
+                        <li><a href="#">GÜNEY KIBRIS</a></li>
+                        <li><a href="#">EKONOMİ</a></li>
+                        <li><a href="#">KÜLTÜR - SANAT</a></li>
+                        <li><a href="#">SPOR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="ts-newslatter-content" style="text-align: end;">
+                    <img src="{{ asset('frontend/assets/images/logo/Logo-footer.png') }}" alt="">
+                    <div class="nav-menus-wrapper clearfix">
+                        <ul class="nav-menu" style="text-align: end">
+                            <li><a href="#">ANASAYFA</a></li>
+                            <li><a href="#">KÜNYE</a></li>
+                            <li><a href="#">REKLAM</a></li>
+                            <li><a href="#">İLETİŞİM</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- col end-->
+
+            <div class="col-lg-4 align-self-center" style="border-left: 1px solid">
+                <h3>TAKİP ET</h3>
+                <div class=" mb-4">
+                    <a href="" style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white"><i class="fa fa-facebook"></i></a>
+                    <a href="" style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white"><i class="fa fa-instagram"></i></a>
+                    <a href="" style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white"><i class="fa fa-twitter"></i></a>
+                    <a href="" style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white"><i class="fa fa-linkedin"></i></a>
+                </div>
+                <h3>MOBİL UYGULAMALAR</h3>
+                <img src="{{ asset('frontend/assets/images/apple.png') }}" alt="">
+                <img src="{{ asset('frontend/assets/images/google.png') }}" alt="">
+                <br>
+                <small>© Tüm Hakları Saklıdır.</small>
+            </div>
+        </div>
+    </div>
+</section>

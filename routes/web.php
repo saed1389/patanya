@@ -8,6 +8,8 @@ use App\Http\Controllers\Backend\DistrictController;
 use App\Http\Controllers\Backend\SubDistrictController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Frontend\ExtraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,7 @@ use App\Http\Controllers\Backend\SettingController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main.home');
 });
 
 Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified' ])->group(function () {
@@ -106,3 +108,25 @@ Route::post('/store/website', [SettingController::class, 'StoreWebsite'])->name(
 Route::get('/edit/website/{id}', [SettingController::class, 'EditWebsite'])->name('edit.website');
 Route::post('/update/website/{id}', [SettingController::class, 'UpdateWebsite'])->name('update.website');
 Route::get('/delete/website/{id}', [SettingController::class, 'DeleteWebsite'])->name('delete.website');
+
+// Photo Gallery RRoutes
+Route::get('/photo/gallery', [GalleryController::class, 'PhotoGallery'])->name('photo.gallery');
+Route::get('/add/gallery', [GalleryController::class, 'AddPhoto'])->name('add.photo');
+Route::post('/store/photo', [GalleryController::class, 'StorePhoto'])->name('store.photo');
+
+// Video Gallery Routes
+Route::get('/video/gallery', [GalleryController::class, 'VideoGallery'])->name('video.gallery');
+Route::get('/add/video', [GalleryController::class, 'AddVideo'])->name('add.video');
+Route::post('/store/video', [GalleryController::class, 'StoreVideo'])->name('store.video');
+
+// FRONTEND
+// Multi Language Routes
+Route::get('/lang/english', [ExtraController::class, 'English'])->name('lang.english');
+Route::get('/lang/turkish', [ExtraController::class, 'Turkish'])->name('lang.turkish');
+Route::get('/lang/russian', [ExtraController::class, 'Russian'])->name('lang.russian');
+
+// Single Post Page
+Route::get('/post/{slug}', [ExtraController::class, 'SinglePost']);
+
+// Post Category and SubCategory Pages
+Route::get('/catpost/{slug}', [ExtraController::class, 'CatPost']);

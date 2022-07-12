@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Image;
 
 class PostController extends Controller
@@ -29,11 +30,13 @@ class PostController extends Controller
 
     public function StorePost(Request $request) {
         $validatedData = $request->validate([
+            'slug' => 'unique:posts|max:255',
             'category_id' => 'required',
             'district_id' => 'required',
         ]);
 
         $data = array();
+        $data['slug'] = Str::of($request->title_tr)->slug('-');
         $data['title_en']       = $request->title_en;
         $data['title_tr']       = $request->title_tr;
         $data['title_ru']       = $request->title_ru;
@@ -85,6 +88,7 @@ class PostController extends Controller
 
     public function UpdatePost(Request $request, $id) {
         $data = array();
+        $data['slug'] = Str::of($request->title_tr)->slug('-');
         $data['title_en']       = $request->title_en;
         $data['title_tr']       = $request->title_tr;
         $data['title_ru']       = $request->title_ru;
@@ -145,8 +149,6 @@ class PostController extends Controller
         );
         return Redirect()->route('all.post')->with($notification);
     }
-
-
 
 
     public function GetSubCategory($category_id) {

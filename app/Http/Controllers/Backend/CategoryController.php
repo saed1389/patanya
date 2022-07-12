@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -19,12 +20,14 @@ class CategoryController extends Controller
 
     public function StoreCategory(Request $request) {
         $validatedData = $request->validate([
+            'slug' => 'unique:categories|max:255',
             'category_en' => 'required|unique:categories|max:255',
             'category_tr' => 'required|unique:categories|max:255',
             'category_ru' => 'nullable',
         ]);
 
         $data = array();
+        $data['slug'] = Str::of($request->category_tr)->slug('-');
         $data['category_en'] = $request->category_en;
         $data['category_tr'] = $request->category_tr;
         $data['category_ru'] = $request->category_ru;
@@ -46,6 +49,7 @@ class CategoryController extends Controller
 
     public function UpdateCategory(Request $request, $id) {
         $data = array();
+        $data['slug'] = Str::of($request->category_tr)->slug('-');
         $data['category_en'] = $request->category_en;
         $data['category_tr'] = $request->category_tr;
         $data['category_ru'] = $request->category_ru;
