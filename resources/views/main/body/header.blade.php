@@ -181,7 +181,7 @@
                         <ul class="nav-menu">
                             @foreach($category as $row)
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ URL::to('pataniya/'.$row->id.'/'.$row->slug) }}">
                                         @if(session()->get('lang') == 'english')
                                             {{ $row->category_en }}
                                         @elseif(session()->get('lang') == 'turkish')

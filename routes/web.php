@@ -129,4 +129,34 @@ Route::get('/lang/russian', [ExtraController::class, 'Russian'])->name('lang.rus
 Route::get('/post/{slug}', [ExtraController::class, 'SinglePost']);
 
 // Post Category and SubCategory Pages
-Route::get('/catpost/{slug}', [ExtraController::class, 'CatPost']);
+Route::get('/pataniya/{id}/{slug}', [ExtraController::class, 'CatPost']);
+Route::get('/subcatpost/{id}/{slug}', [ExtraController::class, 'SubCatPost']);
+
+// Search District In Home page
+Route::get('/get/subdistrict/frontend/{district_id}', [ExtraController::class, 'GetSubDist']);
+Route::get('/search/district', [ExtraController::class, 'SearchDistrict'])->name('searchby.districts');
+
+// Ads Backend Section Route
+Route::get('/list/add', [AdsController::class, 'ListAds'])->name('list.add');
+Route::get('/add/ads', [AdsController::class, 'AddAds'])->name('add.ads');
+Route::post('/store/ads', [AdsController::class, 'StoreAds'])->name('store.ads');
+
+// Writer Role Routes
+Route::get('/add/writer', [RoleController::class, 'InsertWriter'])->name('add.writer');
+Route::post('/store/writer', [RoleController::class, 'StoreWriter'])->name('store.writer');
+Route::get('/all/writer', [RoleController::class, 'AllWriter'])->name('all.writer');
+Route::get('/edit/writer/{id}', [RoleController::class, 'EditWriter'])->name('edit.writer');
+Route::post('/update/writer/{id}', [RoleController::class, 'UpdateWriter'])->name('update.writer');
+
+// All Website Setting Routes
+Route::get('/web/setting', [WebsiteSettingController::class, 'MainWebSetting'])->name('website.setting');
+Route::post('/update/websetting/{id}', [WebsiteSettingController::class, 'UpdateWebSetting'])->name('update.websetting');
+
+// Account Setting Routes
+Route::get('/account/setting', [AdminController::class, 'AccountSetting'])->name('account.setting');
+Route::get('/profile/edit', [AdminController::class, 'ProfileEdit'])->name('profile.edit');
+Route::post('/profile/store', [AdminController::class, 'ProfileStore'])->name('profile.store');
+
+/// Change Password
+Route::get('/show/password', [AdminController::class, 'ShowPassword'])->name('show.password');
+Route::post('/change/password', [AdminController::class, 'ChangePassword'])->name('change.password');

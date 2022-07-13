@@ -41,14 +41,17 @@ class ExtraController extends Controller
     }
 
 
-    public function CatPost($id, $category_en){
-        $catposts = DB::table('posts')->where('category_id',$id)->orderBy('id','desc')->paginate(5);
-        return view('main.allpost',compact('catposts'));
+    public function CatPost($id, $slug){
+        $sliders = DB::table('posts')->where('category_id',$id)->orderBy('id','desc')->limit(18)->get();
+        $allPosts = DB::table('posts')->where('category_id', $id)->skip(18)->orderBy('id', 'desc')->paginate(12);
+        $randoms = DB::table('posts')->where('category_id', $id)->inRandomOrder()->limit(6)->get();
+        $category = DB::table('categories')->where('id', $id)->first();
+        return view('main.allpost',compact('sliders', 'allPosts', 'randoms', 'category'));
 
     }
 
 
-    public function SubCatPost($id, $subcategory_en){
+    public function SubCatPost($id, $slug){
         $subcatposts = DB::table('posts')->where('subcategory_id',$id)->orderBy('id','desc')->paginate(5);
         return view('main.subpost',compact('subcatposts'));
     }
