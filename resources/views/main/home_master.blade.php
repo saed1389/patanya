@@ -1,5 +1,6 @@
 @php
     $seo = DB:: table('seos')->first();
+    $ads = DB:: table('ads')->first();
 @endphp
 <!doctype html>
 <html lang="tr-TR">

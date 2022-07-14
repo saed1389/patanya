@@ -72,4 +72,6 @@ class ExtraController extends Controller
         return view('main.allpost',compact('catposts'));
 
     }
+
+    public function HomePage() {}
 }

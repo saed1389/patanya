@@ -9,7 +9,9 @@ use App\Http\Controllers\Backend\SubDistrictController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Backend\AdsController;
 use App\Http\Controllers\Frontend\ExtraController;
+use App\Http\Controllers\Frontend\HomePageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +24,10 @@ use App\Http\Controllers\Frontend\ExtraController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('main.home');
-});
-
+});*/
+Route::get('/', [HomePageController::class , 'Index']);
 Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified' ])->group(function () {
     Route::get('/dashboard', function () {return view('admin.index');})->name('dashboard');
 });
@@ -113,6 +115,7 @@ Route::get('/delete/website/{id}', [SettingController::class, 'DeleteWebsite'])-
 Route::get('/photo/gallery', [GalleryController::class, 'PhotoGallery'])->name('photo.gallery');
 Route::get('/add/gallery', [GalleryController::class, 'AddPhoto'])->name('add.photo');
 Route::post('/store/photo', [GalleryController::class, 'StorePhoto'])->name('store.photo');
+Route::post('/delete/photo/{id}', [GalleryController::class, 'DeletePhoto'])->name('delete.photo');
 
 // Video Gallery Routes
 Route::get('/video/gallery', [GalleryController::class, 'VideoGallery'])->name('video.gallery');

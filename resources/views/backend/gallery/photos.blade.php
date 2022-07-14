@@ -40,7 +40,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('delete.category', $row->id) }}" onclick="return confirm('Are You Sure To Delete?')" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('delete.photo', $row->id) }}" onclick="return confirm('Are You Sure To Delete?')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 @endforeach

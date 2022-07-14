@@ -5,27 +5,27 @@
 <style>
     .news {
         width: 260px;
-        border-radius:0px 10px 10px 0px;
-        display:flex;
+        border-radius: 0px 10px 10px 0px;
+        display: flex;
         position: relative;
         overflow: hidden;
     }
-    .white
-    {
-        height:40px;
-        overflow:hidden;
+
+    .white {
+        height: 40px;
+        overflow: hidden;
     }
 
-    .scroll{
+    .scroll {
         display: flex;
         flex-wrap: wrap;
-        margin:0;
+        margin: 0;
         padding: 0;
         z-index: 999;
-        animation:vertical-up 5s ease-in-out infinite;
+        animation: vertical-up 5s ease-in-out infinite;
     }
-    .scroll li
-    {
+
+    .scroll li {
         list-style: none;
         display: flex;
         width: 100%;
@@ -36,16 +36,19 @@
 
     .scroll li a {
         text-decoration: none;
-        color:#323232;
-        font-weight:700;
+        color: #323232;
+        font-weight: 700;
 
     }
-    .scroll a:hover
-    {
-        color:#0d6efd;
+
+    .scroll a:hover {
+        color: #0d6efd;
     }
 
-    .scroll:hover{animation-play-state: paused; }
+    .scroll:hover {
+        animation-play-state: paused;
+    }
+
     .dot {
         height: 7px;
         width: 7px;
@@ -56,12 +59,19 @@
         display: inline-block;
     }
 
-    @keyframes vertical-up
-    {
-        0%   {margin-top: 0;}
-        35%  {margin-top: -30px;}
-        70%  {margin-top: -60px;}
-        100% {margin-top: 0;}
+    @keyframes vertical-up {
+        0% {
+            margin-top: 0;
+        }
+        35% {
+            margin-top: -30px;
+        }
+        70% {
+            margin-top: -60px;
+        }
+        100% {
+            margin-top: 0;
+        }
 
     }
 
@@ -71,9 +81,14 @@
     <div class="">
         <div class="row" style="text-align: center; text-align: -webkit-center">
             <div class="col-lg-12 md-center-item">
-                <div style="height: 332px; width: 1440px; background-image: url({{ asset('image/r1.jpg') }}); background-repeat: no-repeat;  background-size: cover;">
-
-                </div>
+                @if($ads->type == 1)
+                    <a href="{!! $ads->link !!}" target="_blank">
+                        <div style="height: 332px; width: 1440px; background-image: url(
+                            {{ asset($ads->ads) }}
+                            ); background-repeat: no-repeat;  background-size: cover;">
+                        </div>
+                    </a>
+                @endif
             </div>
         </div>
     </div>
@@ -88,15 +103,19 @@
                     $livetv = DB::table('livetvs')->first();
                 @endphp
                 @if($livetv->status == 1)
-                    <a href="{!! $livetv->embed_code !!}" target="_blank" class="btn btn-danger" style="padding-right: 5px; padding-left: 5px; padding-top: 10px; padding-bottom: 10px;">
+                    <a href="{!! $livetv->embed_code !!}" target="_blank" class="btn btn-danger"
+                       style="padding-right: 5px; padding-left: 5px; padding-top: 10px; padding-bottom: 10px;">
                         <i>
-                            <img src="{{ asset('frontend/assets/images/Vector.png') }}" style="margin-top: -5px; margin-right: 5px;">
+                            <img src="{{ asset('frontend/assets/images/Vector.png') }}"
+                                 style="margin-top: -5px; margin-right: 5px;">
                         </i> Canlı Yayın
                     </a>
                 @else
-                    <a href="javascript: void (0)" class="btn btn-info" disabled="" style=" background-color: #B2D1ED ;padding-right: 5px; padding-left: 5px; padding-top: 10px; padding-bottom: 10px;">
+                    <a href="javascript: void (0)" class="btn btn-info" disabled=""
+                       style=" background-color: #B2D1ED ;padding-right: 5px; padding-left: 5px; padding-top: 10px; padding-bottom: 10px;">
                         <i>
-                            <img src="{{ asset('frontend/assets/images/Vector.png') }}" style="margin-top: -5px; margin-right: 5px;">
+                            <img src="{{ asset('frontend/assets/images/Vector.png') }}"
+                                 style="margin-top: -5px; margin-right: 5px;">
                         </i> Canlı Yayın
                     </a>
                 @endif
@@ -125,7 +144,9 @@
                                 </form>
                             </div>
                             <div class="dropdown language" style="float: left">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white;padding: 0; padding-top: 20px">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                        style="background-color: white;padding: 0; padding-top: 20px">
                                     <span class="flag-icon flag-icon-us" style="font-size: 20px"></span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right text-right language"
@@ -136,28 +157,38 @@
                                     <a class="dropdown-item" href="{{ route('lang.turkish') }}">
                                         <span class="flag-icon flag-icon-tr"> </span>
                                     </a>
-                                   {{-- <a class="dropdown-item" href="{{ route('lang.russian') }}">
-                                        <span class="flag-icon flag-icon-ru"> </span>
-                                    </a>--}}
+                                    {{-- <a class="dropdown-item" href="{{ route('lang.russian') }}">
+                                         <span class="flag-icon flag-icon-ru"> </span>
+                                     </a>--}}
                                 </div>
                             </div>
                         </li>
                         <li style="display: inline-flex;">
                             <div>
                                 @if($social->facebook != null)
-                                    <a href="{!! $social->facebook !!}" style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="{!! $social->facebook !!}"
+                                       style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white"
+                                       target="_blank"><i class="fa fa-facebook"></i></a>
                                 @endif
                                 @if($social->instagram != null)
-                                    <a href="{!! $social->instagram !!}" style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white" target="_blank"><i class="fa fa-instagram"></i></a>
-                                    @endif
-                                    @if($social->twitter != null)
-                                    <a href="{!! $social->twitter !!}" style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    @endif
-                                    @if($social->linkedin != null)
-                                    <a href="{!! $social->linkedin !!}" style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    @endif
-                                    @if($social->youtube != null)
-                                    <a href="{!! $social->youtube !!}" style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white" target="_blank"><i class="fa fa-youtube"></i></a>
+                                    <a href="{!! $social->instagram !!}"
+                                       style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white"
+                                       target="_blank"><i class="fa fa-instagram"></i></a>
+                                @endif
+                                @if($social->twitter != null)
+                                    <a href="{!! $social->twitter !!}"
+                                       style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white"
+                                       target="_blank"><i class="fa fa-twitter"></i></a>
+                                @endif
+                                @if($social->linkedin != null)
+                                    <a href="{!! $social->linkedin !!}"
+                                       style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white"
+                                       target="_blank"><i class="fa fa-linkedin"></i></a>
+                                @endif
+                                @if($social->youtube != null)
+                                    <a href="{!! $social->youtube !!}"
+                                       style="display: inline; border-left: none;padding: 5px 10px 5px 10px; background-color: #f59a9a; color: white"
+                                       target="_blank"><i class="fa fa-youtube"></i></a>
                                 @endif
                             </div>
                         </li>
@@ -196,11 +227,21 @@
                 </nav>
             </div>
             <div class="col-lg-10 pull-left">
-                <a href="#" class="btn btn-danger" style="background-color: #DF6D6C; border-color: #DF6D6C; color: white;padding: 13px 30px;margin-left: -4px;">EĞİTİM REHBERİ</a>
-                <a href="#" class="btn btn-danger" style="background-color: #E99F9C; border-color: #E99F9C; color: white;padding: 13px 30px;margin-left: -4px;">TURİZM DÜNYASI</a>
-                <a href="#" class="btn btn-danger" style="background-color: #B2D1ED; border-color: #B2D1ED; color: white;padding: 13px 30px;margin-left: -4px;">EMLAK DÜNYASI</a>
-                <a href="#" class="btn btn-danger" style="background-color: #F4E6A5; border-color: #F4E6A5; color: white;padding: 13px 30px;margin-left: -4px;">SAĞLIK REHBERİM</a>
-                <a href="#" class="btn btn-danger" style="background-color: #B8CDDE; border-color: #B8CDDE; color: white;padding: 13px 30px;margin-left: -4px;">SİVİL TOPLUM</a>
+                <a href="#" class="btn btn-danger"
+                   style="background-color: #DF6D6C; border-color: #DF6D6C; color: white;padding: 13px 30px;margin-left: -4px;">EĞİTİM
+                    REHBERİ</a>
+                <a href="#" class="btn btn-danger"
+                   style="background-color: #E99F9C; border-color: #E99F9C; color: white;padding: 13px 30px;margin-left: -4px;">TURİZM
+                    DÜNYASI</a>
+                <a href="#" class="btn btn-danger"
+                   style="background-color: #B2D1ED; border-color: #B2D1ED; color: white;padding: 13px 30px;margin-left: -4px;">EMLAK
+                    DÜNYASI</a>
+                <a href="#" class="btn btn-danger"
+                   style="background-color: #F4E6A5; border-color: #F4E6A5; color: white;padding: 13px 30px;margin-left: -4px;">SAĞLIK
+                    REHBERİM</a>
+                <a href="#" class="btn btn-danger"
+                   style="background-color: #B8CDDE; border-color: #B8CDDE; color: white;padding: 13px 30px;margin-left: -4px;">SİVİL
+                    TOPLUM</a>
             </div>
             <div class="col-lg-2 pull-right">
                 asdasd
@@ -219,7 +260,7 @@
                             <div class="d-flex justify-content-center bg-primary py-2 text-white px-1 news">
                                 <span class="d-flex align-items-center">News Update:</span>
                             </div>
-                            <ul class="scroll" >
+                            <ul class="scroll">
                                 @php
                                     $headline = DB::table('posts')->where('posts.headline', 1)->limit(3)->get();
                                 @endphp

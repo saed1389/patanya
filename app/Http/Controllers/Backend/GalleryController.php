@@ -47,6 +47,17 @@ class GalleryController extends Controller
 
     }// END Methods
 
+    public function DeletePhoto($id) {
+        DB::table('photos')->where('id', $id)->delete();
+
+        $notification = array(
+            'message' => 'Photo Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return Redirect()->route('photo.gallery')->with($notification);
+    }
+
     public function VideoGallery(){
         $video = DB::table('videos')->orderBy('id','desc')->paginate(10);
         return view('backend.gallery.videos',compact('video'));
