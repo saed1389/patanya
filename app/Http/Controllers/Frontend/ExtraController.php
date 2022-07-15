@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 class ExtraController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function English() {
         Session::get('lang');
         Session()->forget('lang');

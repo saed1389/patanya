@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class HomePageController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function Index() {
         $ads = DB::table('ads')->first();
         return view('main.home', compact('ads'));

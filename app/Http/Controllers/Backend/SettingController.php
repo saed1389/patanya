@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class SettingController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function SocialSetting() {
         $social = DB::table('socials')->first();
         return view('backend.setting.social', compact('social'));

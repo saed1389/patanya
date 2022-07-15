@@ -9,6 +9,10 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function Index() {
         $category = DB::table('categories')->orderBy('id', 'desc')->paginate(10);
         return view('backend.category.index', compact('category'));

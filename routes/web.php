@@ -7,9 +7,11 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\DistrictController;
 use App\Http\Controllers\Backend\SubDistrictController;
 use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\AdsController;
+use App\Http\Controllers\Backend\WebsiteSettingController;
 use App\Http\Controllers\Frontend\ExtraController;
 use App\Http\Controllers\Frontend\HomePageController;
 

@@ -11,6 +11,10 @@ use Image;
 
 class PostController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function Index() {
         $post = DB::table('posts')
             ->join('categories', 'posts.category_id', 'categories.id')

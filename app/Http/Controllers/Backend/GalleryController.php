@@ -9,6 +9,10 @@ use Image;
 
 class GalleryController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function PhotoGallery(){
         $photo = DB::table('photos')->orderBy('id','desc')->paginate(5);
         return view('backend.gallery.photos',compact('photo'));

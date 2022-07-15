@@ -8,6 +8,10 @@ use DB;
 
 class DistrictController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function Index() {
         $district = DB::table('districts')->orderBy('id', 'desc')->paginate(10);
         return view('backend.district.index', compact('district'));
