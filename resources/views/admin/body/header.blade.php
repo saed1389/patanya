@@ -152,24 +152,20 @@
                 <li>
                     <div class="dropdown morphing scale-left user-profile mx-lg-3 mx-2">
                         <a class="nav-link dropdown-toggle rounded-circle after-none p-0" href="#" role="button" data-bs-toggle="dropdown">
-                            <img class="avatar img-thumbnail rounded-circle shadow" src="{{ (!empty($editDate->profile_image)) ? url('upload/admin_images/'. $editDate->profile_image) : url('upload/no-image.png') }}" alt="">
+                            <img class="avatar img-thumbnail rounded-circle shadow" src="{{ (!empty($adminDate->image)) ? url('upload/user_image/'.$adminDate->image) : url('upload/no-image.png') }}" alt="">
                         </a>
                         <div class="dropdown-menu border-0 rounded-4 shadow p-0">
                             <div class="card border-0 w240">
                                 <div class="card-body border-bottom d-flex">
-                                    <img class="avatar rounded-circle" src="{{ (!empty($editDate->profile_image)) ? url('upload/admin_images/'. $editDate->profile_image) : url('upload/no-image.png') }}" alt="">
+                                    <img class="avatar rounded-circle" src="{{ (!empty($adminDate->profile_image)) ? url('upload/admin_images/'. $adminDate->profile_image) : url('upload/no-image.png') }}" alt="">
                                     <div class="flex-fill ms-3">
                                         <h6 class="card-title mb-0">{{ $adminDate->name }}</h6>
                                         <span class="text-muted">{{ $adminDate->email }}</span>
                                     </div>
                                 </div>
                                 <div class="list-group m-2 mb-3">
-                                    <a class="list-group-item list-group-item-action border-0" href="#"><i class="w30 fa fa-user"></i>My Profile</a>
-                                    <a class="list-group-item list-group-item-action border-0" href="#"><i class="w30 fa fa-gear"></i>Change Password</a>
-                                    <a class="list-group-item list-group-item-action border-0" href="account-billing.html"><i class="w30 fa fa-credit-card"></i>Billing</a>
-                                    <a class="list-group-item list-group-item-action border-0" href="../page-teamsboard.html"><i class="w30 fa fa-users"></i>Manage Team</a>
-                                    <a class="list-group-item list-group-item-action border-0" href="../dashboard-enevt.html"><i class="w30 fa fa-calendar"></i>My Events</a>
-                                    <a class="list-group-item list-group-item-action border-0" href="../page-support-ticket.html"><i class="w30 fa fa-tag"></i>Support Ticket</a>
+                                    <a class="list-group-item list-group-item-action border-0" href="{{ route('account.setting') }}"><i class="w30 fa fa-user"></i>Account Settings</a>
+                                    <a class="list-group-item list-group-item-action border-0" href="{{ route('show.password') }}"><i class="w30 fa fa-gear"></i>Change Password</a>
                                 </div>
                                 <a href="{{ route('admin.logout') }}" class="btn bg-secondary text-light text-uppercase rounded-0">Sign out</a>
                             </div>
