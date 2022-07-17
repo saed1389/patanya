@@ -61,6 +61,10 @@
                                         <label class="form-check-label" for="setting">Setting</label>
                                         <input class="form-check-input" type="checkbox" id="setting" value="1" name="setting" data-parsley-errors-container="#error-checkbox" data-parsley-multiple="checkbox">
                                     </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label" for="specialPost">Special Post</label>
+                                        <input class="form-check-input" type="checkbox" id="specialPost" value="1" name="specialPost" data-parsley-errors-container="#error-checkbox" data-parsley-multiple="checkbox">
+                                    </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-check form-check-inline">

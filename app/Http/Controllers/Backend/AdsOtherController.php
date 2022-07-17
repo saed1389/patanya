@@ -4,22 +4,22 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Image;
+use App\Models\AdsOtherModel;
 
-class AdsController extends Controller
+class AdsOtherController extends Controller
 {
     public function __construct() {
         $this->middleware('auth');
     }
 
     public function ListAds() {
-        $ads = DB::table('ads')->orderBy('id', 'asc')->get();
-        return view('backend.ads.listads', compact('ads'));
+        $adsOther = AdsOtherModel::orderBy('id', 'asc')->get();
+        return view('backend.adsOther.listads', compact('adsOther'));
     }
 
     public function AddAds() {
-        return view('backend.ads.add_ads');
+        return view('backend.adsOther.add_ads');
     }
 
     public function StoreAds(Request $request) {
@@ -33,33 +33,33 @@ class AdsController extends Controller
             Image::make($image)->save('image/ads/'.$image_one);
             $date['ads'] = 'image/ads/'.$image_one;
 
-            DB::table('ads')->insert($date);
+            AdsOtherModel::insert($date);
 
             $notification = array(
                 'message' => 'Ads Inserted Successfully',
                 'alert-type' => 'success'
             );
 
-            return Redirect()->route('list.add')->with($notification);
+            return Redirect()->route('list.addOther')->with($notification);
         } else {
             return Redirect()->back();
         }
     }
 
     public function DeleteAds($id) {
-        DB::table('ads')->where('id', $id)->delete();
+        AdsOtherModel::where('id', $id)->delete();
 
         $notification = array(
             'message' => 'Ads Deleted Successfully',
             'alert-type' => 'success'
         );
 
-        return Redirect()->route('list.add')->with($notification);
+        return Redirect()->route('list.addOther')->with($notification);
     }
 
     public function EditAds($id) {
-        $ads = DB::table('ads')->where('id', $id)->first();
-        return view('backend.ads.edit', compact('ads'));
+        $adsOther = AdsOtherModel::where('id', $id)->first();
+        return view('backend.adsOther.edit', compact('adsOther'));
     }
 
     public function UpdateAds(Request $request, $id) {
@@ -74,27 +74,27 @@ class AdsController extends Controller
             Image::make($image)->save('image/ads/'.$image_one);
             $data['ads'] = 'image/ads/'.$image_one;
 
-            DB::table('ads')->where('id', $id)->update($data);
+            AdsOtherModel::where('id', $id)->update($data);
             unlink($oldimage);
             $notification = array(
                 'message' => 'ads Updated Successfully',
                 'alert-type' => 'success'
             );
-            return Redirect()->route('list.add')->with($notification);
+            return Redirect()->route('list.addOther')->with($notification);
 
         } else {
             $data['ads'] = $oldimage;
-            DB::table('ads')->where('id', $id)->update($data);
+            AdsOtherModel::where('id', $id)->update($data);
 
             $notification = array(
                 'message' => 'Ads Updated Successfully',
                 'alert-type' => 'success'
             );
-            return Redirect()->route('list.add')->with($notification);
+            return Redirect()->route('list.addOther')->with($notification);
         }
     }
 
-    public function ChangeStatusAdsHome($id, $status) {
-        DB::table('ads')->where('id', $id)->update(['status' => $status]);
+    public function ChangeStatusAdsOther($id, $status) {
+        AdsOtherModel::where('id', $id)->update(['status' => $status]);
     }
 }

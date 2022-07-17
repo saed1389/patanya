@@ -11,7 +11,10 @@ use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\AdsController;
+use App\Http\Controllers\Backend\AdsOtherController;
 use App\Http\Controllers\Backend\WebsiteSettingController;
+use App\Http\Controllers\Backend\SpecialCategoryController;
+use App\Http\Controllers\Backend\SpecialPostController;
 use App\Http\Controllers\Frontend\ExtraController;
 use App\Http\Controllers\Frontend\HomePageController;
 
@@ -141,10 +144,23 @@ Route::get('/subcatpost/{id}/{slug}', [ExtraController::class, 'SubCatPost']);
 Route::get('/get/subdistrict/frontend/{district_id}', [ExtraController::class, 'GetSubDist']);
 Route::get('/search/district', [ExtraController::class, 'SearchDistrict'])->name('searchby.districts');
 
-// Ads Backend Section Route
+// Ads Home Page Backend Section Route
 Route::get('/list/add', [AdsController::class, 'ListAds'])->name('list.add');
 Route::get('/add/ads', [AdsController::class, 'AddAds'])->name('add.ads');
 Route::post('/store/ads', [AdsController::class, 'StoreAds'])->name('store.ads');
+Route::get('/edit/ads/{id}', [AdsController::class, 'EditAds'])->name('edit.ads');
+Route::post('/update/ads/{id}', [AdsController::class, 'UpdateAds'])->name('update.ads');
+Route::get('/delete/ads/{id}', [AdsController::class, 'DeleteAds'])->name('delete.ads');
+Route::post('/get/ChangeStatusAdsHome/{id}/{status}', [AdsController::class, 'ChangeStatusAdsHome']);
+
+// Ads Other Page Backend Section Route
+Route::get('/list/addOther', [AdsOtherController::class, 'ListAds'])->name('list.addOther');
+Route::get('/add/adsOther', [AdsOtherController::class, 'AddAds'])->name('add.adsOther');
+Route::post('/store/adsOther', [AdsOtherController::class, 'StoreAds'])->name('store.adsOther');
+Route::get('/edit/adsOther/{id}', [AdsOtherController::class, 'EditAds'])->name('edit.adsOther');
+Route::post('/update/adsOther/{id}', [AdsOtherController::class, 'UpdateAds'])->name('update.adsOther');
+Route::get('/delete/adsOther/{id}', [AdsOtherController::class, 'DeleteAds'])->name('delete.adsOther');
+Route::post('/get/ChangeStatusAdsOther/{id}/{status}', [AdsOtherController::class, 'ChangeStatusAdsOther']);
 
 // Writer Role Routes
 Route::get('/add/writer', [RoleController::class, 'InsertWriter'])->name('add.writer');
@@ -165,3 +181,21 @@ Route::post('/profile/store', [AdminController::class, 'ProfileStore'])->name('p
 /// Change Password
 Route::get('/show/password', [AdminController::class, 'ShowPassword'])->name('show.password');
 Route::post('/change/password', [AdminController::class, 'ChangePassword'])->name('change.password');
+
+// Special Category
+Route::get('/specialCategory', [SpecialCategoryController::class , 'Index'])->name('specialCategory');
+Route::get('/add/specialCategory', [SpecialCategoryController::class, 'AddSpecialCategory'])->name('add.specialCategory');
+Route::post('/store/specialCategory', [SpecialCategoryController::class, 'StoreSpecialCategory'])->name('store.specialCategory');
+Route::get('/edit/specialCategory/{id}', [SpecialCategoryController::class, 'EditSpecialCategory'])->name('edit.specialCategory');
+Route::post('/update/specialCategory/{id}', [SpecialCategoryController::class, 'UpdateSpecialCategory'])->name('update.specialCategory');
+Route::get('/delete/specialCategory/{id}', [SpecialCategoryController::class, 'DeleteSpecialCategory'])->name('delete.specialCategory');
+
+//Special Post
+Route::get('/allSpecialPost', [SpecialPostController::class, 'Index'])->name('all.SpecialPost');
+Route::get('/createSpecialPost', [SpecialPostController::class, 'Create'])->name('create.SpecialPost');
+Route::post('/store/SpecialPost', [SpecialPostController::class, 'StorePost'])->name('store.SpecialPost');
+Route::get('/edit/SpecialPost/{id}', [SpecialPostController::class, 'EditPost'])->name('edit.SpecialPost');
+Route::post('/update/SpecialPost/{id}', [SpecialPostController::class, 'UpdatePost'])->name('update.SpecialPost');
+Route::get('/delete/SpecialPost/{id}', [SpecialPostController::class, 'DeletePost'])->name('delete.SpecialPost');
+
+Route::post('/get/ChangeStatus/{id}/{status}', [SpecialPostController::class, 'ChangeStatus']);

@@ -54,6 +54,10 @@
                                         <label class="form-check-label" for="setting">Setting</label>
                                         <input class="form-check-input" type="checkbox" id="setting" value="1" @if($writer->setting == 1) checked="" @endif name="setting" data-parsley-errors-container="#error-checkbox" data-parsley-multiple="checkbox">
                                     </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label" for="specialPost">Special Post</label>
+                                        <input class="form-check-input" type="checkbox" id="specialPost" value="1" @if($writer->specialPost == 1) checked="" @endif name="specialPost" data-parsley-errors-container="#error-checkbox" data-parsley-multiple="checkbox">
+                                    </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-check form-check-inline">

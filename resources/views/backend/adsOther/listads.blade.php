@@ -6,9 +6,9 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-title">
-                        <h4>Ads Home Page</h4>
+                        <h4>Ads Other Page</h4>
                         {{--<div class="">
-                            <a href="{{ route('add.ads') }}"><button class="btn btn-primary btn-fw" style="float: right">Add Ads</button></a>
+                            <a href="{{ route('add.adsOther') }}"><button class="btn btn-primary btn-fw" style="float: right">Add Ads</button></a>
                         </div>--}}
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                 </thead>
                 <tbody>
                 @php($i = 1)
-                @foreach($ads as $row)
+                @foreach($adsOther as $row)
                     <tr class="row-selectable odd">
                         <td>{{ $i++ }}</td>
                         <td>{{ $row->link }}</td>
@@ -85,7 +85,7 @@
                             </td>
                         @endif
                         <td>
-                            <a href="{{ route('edit.ads', $row->id) }}" class="btn btn-success">Edit</a>
+                            <a href="{{ route('edit.adsOther', $row->id) }}" class="btn btn-success">Edit</a>
                         </td>
                     </tr>
                 @endforeach
@@ -105,7 +105,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: "{{ url('/get/ChangeStatusAdsHome') }}/"+check_id+"/"+check_active,
+                    url: "{{ url('/get/ChangeStatusAdsOther') }}/"+check_id+"/"+check_active,
                     data: { _token : $('meta[name="csrf-token"]').attr('content'),id: check_id, active: check_active},
                     success: function(response){
                         alert('Data Updated Successfully');

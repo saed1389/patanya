@@ -35,6 +35,21 @@
                         <li><a class="ms-link" href="{{ route('subcategories') }}">SubCategory</a></li>
                     </ul>
                 </li>
+                    <li class="collapsed">
+                        <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-sCategory" href="#">
+                            <svg width="18" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path class="fill-secondary" d="M6.5 1C6.10218 1 5.72064 1.15804 5.43934 1.43934C5.15804 1.72064 5 2.10218 5 2.5V3H1.5C1.10218 3 0.720644 3.15804 0.43934 3.43934C0.158035 3.72064 0 4.10218 0 4.5L0 5.884L7.614 7.914C7.86693 7.98136 8.13307 7.98136 8.386 7.914L16 5.884V4.5C16 4.10218 15.842 3.72064 15.5607 3.43934C15.2794 3.15804 14.8978 3 14.5 3H11V2.5C11 2.10218 10.842 1.72064 10.5607 1.43934C10.2794 1.15804 9.89782 1 9.5 1H6.5ZM6.5 2H9.5C9.63261 2 9.75979 2.05268 9.85355 2.14645C9.94732 2.24022 10 2.36739 10 2.5V3H6V2.5C6 2.36739 6.05268 2.24022 6.14645 2.14645C6.24021 2.05268 6.36739 2 6.5 2Z" />
+                                <path d="M0 13.5C0 13.8978 0.158035 14.2793 0.43934 14.5606C0.720644 14.8419 1.10218 15 1.5 15H14.5C14.8978 15 15.2794 14.8419 15.5607 14.5606C15.842 14.2793 16 13.8978 16 13.5V6.84998L8.129 8.94698C8.04448 8.96955 7.95552 8.96955 7.871 8.94698L0 6.84998V13.5Z" />
+                            </svg>
+                            <span class="ms-2">Special Categories</span>
+                            <span class="arrow fa fa-angle-right ms-auto text-end"></span>
+                        </a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse" id="menu-sCategory">
+                            <li><a class="ms-link" href="{{ route('add.specialCategory') }}">Add Special Category</a></li>
+                            <li><a class="ms-link" href="{{ route('specialCategory') }}">All Special Categories</a></li>
+                        </ul>
+                    </li>
                 @else
                 @endif
                 @if(Auth::user()->district == 1)
@@ -69,6 +84,24 @@
                     <ul class="sub-menu collapse" id="menu-Post">
                         <li><a class="ms-link" href="{{ route('create.post') }}">Add Post</a></li>
                         <li><a class="ms-link" href="{{ route('all.post') }}">All Posts</a></li>
+                    </ul>
+                </li>
+                @else
+                @endif
+                @if(Auth::user()->specialPost == 1)
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-SPost" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 16 16">
+                            <path class="fill-secondary" d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                        </svg>
+                        <span class="ms-2">Special Posts</span>
+                        <span class="arrow fa fa-angle-right ms-auto text-end"></span>
+                    </a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-SPost">
+                        <li><a class="ms-link" href="{{ route('create.SpecialPost') }}">Add Special Post</a></li>
+                        <li><a class="ms-link" href="{{ route('all.SpecialPost') }}">All Special Posts</a></li>
                     </ul>
                 </li>
                 @else
@@ -147,7 +180,7 @@
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Ad">
                         <li><a class="ms-link" href="{{ route('list.add') }}">Ads Home Page List</a></li>
-                        <li><a class="ms-link" href="{{ route('photo.gallery') }}">Ads Other Page List</a></li>
+                        <li><a class="ms-link" href="{{ route('list.addOther') }}">Ads Other Page List</a></li>
                     </ul>
                 </li>
                 @else

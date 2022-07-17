@@ -25,6 +25,7 @@ class RoleController extends Controller
         $data['district'] = $request->district;
         $data['post'] = $request->post;
         $data['setting'] = $request->setting;
+        $data['specialPost'] = $request->specialPost;
         $data['website'] = $request->website;
         $data['gallery'] = $request->gallery;
         $data['ads'] = $request->ads;
@@ -44,15 +45,12 @@ class RoleController extends Controller
     public function AllWriter(){
         $writer = DB::table('users')->where('type',0)->get();
         return view('backend.role.index',compact('writer'));
-
     }
 
 
     public function EditWriter($id){
-
         $writer = DB::table('users')->where('id',$id)->first();
         return view('backend.role.edit',compact('writer'));
-
     }
 
 
@@ -65,6 +63,7 @@ class RoleController extends Controller
         $data['district'] = $request->district;
         $data['post'] = $request->post;
         $data['setting'] = $request->setting;
+        $data['specialPost'] = $request->specialPost;
         $data['website'] = $request->website;
         $data['gallery'] = $request->gallery;
         $data['ads'] = $request->ads;
