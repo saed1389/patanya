@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <div class="card mb-3">
                             <div class="card-body text-center p-4">
-                                <img src="{{asset('backend/assets/img/profile_av.png')}}" alt="" class="rounded-circle mb-3 img-thumbnail shadow-sm">
+                                <img src="{{ (!empty(Auth::user()->image)) ? url('upload/user_image/'.Auth::user()->image) : url('upload/no-image.png') }}" alt="" class="rounded-circle mb-3 img-thumbnail shadow-sm" style="width: 200px;">
                                 <h5 class="mb-0"> Name: {{ Auth::user()->name }}</h5>
                                 <p class="card-text">User Email: {{ Auth::user()->email }}</p>
                                 <p class="card-text">User Mobile: {{ Auth::user()->mobile }}</p>

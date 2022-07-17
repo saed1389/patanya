@@ -112,11 +112,18 @@
                     </div>
                     @if($post->images != null)
                         <div class="mt-1 text-center">
-                            <div class="images-preview-div"></div>
+                            <div class="images-preview-div">
+                                @php
+                                $imagesA = explode('|', $post->images);
+                                @endphp
+                                @foreach($imagesA as $item)
+                                    <img src="{{ URL::to($item) }}" class="img-ovarlay" alt="">
+                                @endforeach
+                            </div>
                         </div>
                     @endif
                     @if($post->video != null)
-                        <div class="single-big-img img-ovarlay mb-30"
+                        <div class="single-big-img img-ovarlay mb-30 mt-3"
                              style="background-image: url({{asset($post->image)}})">
                             <a href="{{ $post->video }}" class="ts-video-btn">
                                 <i class="fa fa-play-circle-o"></i>
@@ -287,7 +294,7 @@
 
 
 
-    <script>
+    {{--<script>
         $(function () {
 // Multiple images preview with JavaScript
             var previewImages = function (input, imgPreviewPlaceholder) {
@@ -306,5 +313,5 @@
                 previewImages(this, 'div.images-preview-div');
             });
         });
-    </script>
+    </script>--}}
 @endsection

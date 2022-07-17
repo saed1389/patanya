@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\AdsController;
 use App\Http\Controllers\Backend\AdsOtherController;
 use App\Http\Controllers\Backend\WebsiteSettingController;
 use App\Http\Controllers\Backend\SpecialCategoryController;
+use App\Http\Controllers\Backend\NewspaperController;
 use App\Http\Controllers\Backend\SpecialPostController;
 use App\Http\Controllers\Frontend\ExtraController;
 use App\Http\Controllers\Frontend\HomePageController;
@@ -87,6 +88,13 @@ Route::get('/delete/post/{id}', [PostController::class, 'DeletePost'])->name('de
 // Social Settings Routes
 Route::get('/social/setting', [SettingController::class, 'SocialSetting'])->name('social.setting');
 Route::post('/social/update/{id}', [SettingController::class, 'SocialUpdate'])->name('update.social');
+
+// Newspaper Link Route
+Route::get('/all/newspaper', [NewspaperController::class, 'Index'])->name('all.newspaper');
+Route::get('/add/newspaper', [NewspaperController::class, 'AddNewspaper'])->name('add.newspaper');
+Route::post('/store/newspaper', [NewspaperController::class, 'StoreNewspaper'])->name('store.newspaper');
+Route::get('/delete/newspaper/{id}', [NewspaperController::class, 'DeleteNewspaper'])->name('delete.newspaper');
+Route::post('/get/ChangeStatusNewspaper/{id}/{status}', [NewspaperController::class, 'ChangeStatusNewspaper']);
 
 // Seo Setting Routes
 Route::get('/seo/setting', [SettingController::class, 'SeoSetting'])->name('seo.setting');

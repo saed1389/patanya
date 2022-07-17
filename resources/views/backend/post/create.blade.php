@@ -97,7 +97,7 @@
                             <div class="col-12 pt-2">
                                 <span class="float-label">
                                   <input type="file" name="image" class="form-control" id="image">
-                                  <label class="form-label" for="image">Image Upload</label>
+                                  <label class="form-label" for="image">Cover Image Upload</label>
                                 </span>
                             </div>
 
@@ -147,22 +147,25 @@
                                     <label class="form-check-label" for="headline">Headline</label>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="form-check form-switch pageheader-switch mb-1">
-                                    <input class="form-check-input form-control" type="checkbox" name="bigthumbnail" id="bigthumbnail" value="1">
-                                    <label class="form-check-label" for="bigthumbnail">General Big Thumbnail</label>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-check form-switch pageheader-switch mb-1">
-                                    <input class="form-check-input form-control" type="checkbox" name="first_section" id="first_section" value="1">
-                                    <label class="form-check-label" for="first_section">First Section</label>
-                                </div>
-                            </div>
+
                             <div class="col-3">
                                 <div class="form-check form-switch pageheader-switch mb-1">
                                     <input class="form-check-input form-control" type="checkbox" name="first_section_thumbnail" id="first_section_thumbnail" value="1">
-                                    <label class="form-check-label" for="first_section_thumbnail">First Section Big Thumbnail</label>
+                                    <label class="form-check-label" for="first_section_thumbnail">Slider</label>
+                                </div>
+                            </div>
+
+                            <div class="col-3">
+                                <span class="float-label">
+                                  <input type="text" name="video" class="form-control" id="video" placeholder="Video">
+                                  <label class="form-label" for="video">Video</label>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <div class="float-label mb-1">
+                                    <input class="form-control" type="file" name="images[]" id="images" multiple="">
+                                    <label class="form-check-label" for="images">Other Images</label>
                                 </div>
                             </div>
                             <div class="col-12">

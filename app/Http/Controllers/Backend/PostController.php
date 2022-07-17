@@ -56,11 +56,24 @@ class PostController extends Controller
         $data['details_tr']     = $request->details_tr;
         $data['details_ru']     = $request->details_ru;
         $data['headline']       = $request->headline;
+        $data['video']          = $request->video;
         $data['bigthumbnail']   = $request->bigthumbnail;
         $data['first_section']  = $request->first_section;
         $data['first_section_thumbnail'] = $request->first_section_thumbnail;
         $data['post_date']      = date('d-m-Y');
         $data['post_month']     = date("F");
+
+        $images = array();
+        if ($files = $request->file('images')) {
+            foreach ($files as $file) {
+                $image_name = uniqid().'.'.$file->getClientOriginalExtension();
+                Image::make($file)->save('image/postimg/'.$image_name);
+                $image_url = 'image/postimg/'.$image_name;
+                $images[] = $image_url;
+            }
+            $MImage = implode('|', $images);
+            $data['images'] = $MImage;
+        }
 
         $image = $request->image;
         if ($image) {

@@ -77,7 +77,7 @@
                         <div class="dropdown-menu border-0 rounded-4 shadow p-0">
                             <div class="card border-0 w240">
                                 <div class="card-body border-bottom d-flex">
-                                    <img class="avatar rounded-circle" src="{{ (!empty($adminDate->profile_image)) ? url('upload/admin_images/'. $adminDate->profile_image) : url('upload/no-image.png') }}" alt="">
+                                    <img class="avatar rounded-circle" src="{{ (!empty($adminDate->image)) ? url('upload/user_image/'.$adminDate->image) : url('upload/no-image.png') }}" alt="">
                                     <div class="flex-fill ms-3">
                                         <h6 class="card-title mb-0">{{ $adminDate->name }}</h6>
                                         <span class="text-muted">{{ $adminDate->email }}</span>

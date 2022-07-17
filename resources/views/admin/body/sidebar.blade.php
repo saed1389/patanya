@@ -118,6 +118,7 @@
                     </a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Setting">
+                        <li><a class="ms-link" href="{{ route('all.newspaper') }}">Newspaper</a></li>
                         <li><a class="ms-link" href="{{ route('social.setting') }}">Social Setting</a></li>
                         <li><a class="ms-link" href="{{ route('seo.setting') }}">SEO Setting</a></li>
                         <li><a class="ms-link" href="{{ route('prayer.setting') }}">Prayer Setting</a></li>

@@ -1,5 +1,12 @@
 @extends('admin.admin_master')
 @section('admin')
+    <style>
+        .ck-editor__editable[role="textbox"] {
+            /* editing area */
+            min-height: 200px;
+        }
+    </style>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
@@ -40,6 +47,15 @@
                                 <span class="float-label">
                                   <input type="text" name="position" class="form-control form-control-lg" id="position" value="{{ $editDate->position }}">
                                   <label class="form-label" for="position">Position</label>
+                                </span>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label" style="color: #2794EA" for="about">About Winter</label>
+                                <span class="float-label">
+                                  <textarea class="form-control form-control-lg" id="about" name="about" rows="10" cols="30">
+                                      {{ $editDate->about }}
+                                  </textarea>
                                 </span>
                             </div>
 
@@ -90,5 +106,12 @@
                 reader.readAsDataURL(e.target.files[0]);
             });
         });
+    </script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#about' ) )
+            .catch( error => {
+                console.error( error );
+            } );
     </script>
 @endsection

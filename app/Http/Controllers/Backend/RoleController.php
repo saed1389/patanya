@@ -30,6 +30,7 @@ class RoleController extends Controller
         $data['gallery'] = $request->gallery;
         $data['ads'] = $request->ads;
         $data['role'] = $request->role;
+        $data['about'] = $request->about;
         $data['type'] = 0;
 
         DB::table('users')->insert($data);
@@ -68,6 +69,7 @@ class RoleController extends Controller
         $data['gallery'] = $request->gallery;
         $data['ads'] = $request->ads;
         $data['role'] = $request->role;
+        $data['about'] = $request->about;
 
 
         DB::table('users')->where('id', $id)->update($data);
