@@ -41,13 +41,6 @@
                         @endif
                     </div>
                     <div class="ts-overlay-style featured-post owl-carousel" id="featured-slider-5">
-                        @php
-                            $slider = DB::table('posts')
-                            ->where('first_section_thumbnail', 1)
-                            ->orderBy('id', 'desc')
-                            ->limit(20)
-                            ->get();
-                        @endphp
 
                         @foreach($slider as $row)
                             <div class="item" style="background-image:url({{ asset($row->image) }})">
@@ -95,7 +88,7 @@
                         @endif
                     </div>
                     <div class="col-md-12 pt-1" style="padding-right: 0; padding-left: 0">
-                        @if($adsHome[9]->type == 10 && $adsHome[9]->status == 9)
+                        @if($adsHome[9]->type == 10 && $adsHome[9]->status == 1)
                             <a href="{{ $adsHome[9]->link }}" target="">
                                 <div
                                     style="background-color: #f59a9a; height: 132px;background-image: url( {{ asset($adsHome[9]->ads) }} ); background-repeat: round;  background-size: cover;">
@@ -142,58 +135,6 @@
                         @endforeach
                     </div>
 
-
-
-                    {{--<div class="col-md-4 pull-left">
-
-                    </div>
-                    <div class="col-md-4 pull-left">
-                        <div class="item">
-                            <div class="ts-post-thumb">
-                                <a href="#" class="post-cat ts-purple-bg">TOLES, 30 Haziran’da DAÜ’de yapılacak</a>
-                                <a href="#">
-                                    <img class="img-fluid"
-                                         src="{{ asset('frontend/assets/images/news/health/health4.jpg') }}" alt="">
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title" style="text-align: center">
-                                    <a href="#">Eğitim Rehberi</a>
-                                </h3>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="ts-post-thumb">
-                                <a href="#" class="post-cat ts-purple-bg">Kuzey Kore'de yeni bir salgın rastlandığı
-                                    iddia edildi</a>
-                                <a href="#">
-                                    <img class="img-fluid"
-                                         src="{{ asset('frontend/assets/images/news/health/health1.jpg') }}" alt="">
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title" style="text-align: center">
-                                    <a href="#">Emlak Dünyası</a>
-                                </h3>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="ts-post-thumb">
-                                <a href="#" class="post-cat ts-purple-bg">TOLES, 30 Haziran’da DAÜ’de yapılacak</a>
-                                <a href="#">
-                                    <img class="img-fluid"
-                                         src="{{ asset('frontend/assets/images/news/health/health2.jpg') }}" alt="">
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title" style="text-align: center">
-                                    <a href="#">Sağlık Rehberim</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>--}}
                     <div class="col-md-3 pull-left" style="padding-left: 24px; border-left: 1px solid">
                         <div class="item">
                             @if($adsHome[10]->type == 11 && $adsHome[10]->status == 1)
@@ -218,7 +159,7 @@
         </div>
     </section>
 
-    <section class="block-wrapper mb-45">
+    {{--<section class="block-wrapper mb-45">
         <div class="container">
             <div class="ts-grid-box ts-grid-box-heighlight">
                 <h2 class="ts-title"><a href="" style="color: black">Tümü</a></h2>
@@ -237,11 +178,9 @@
                 </div>
             </div>
         </div>
-    </section>
-    <hr>
-    @php
-        $firstCategory = DB::table('categories')->first();
-    @endphp
+    </section>--}}
+    {{--<hr>--}}
+
     <section class="block-wrapper mt-15">
         <div class="container">
             <div class="row">
@@ -262,9 +201,6 @@
                             </div>
                         </div>
                         <div class="row ts-post-style-2">
-                            @php
-                                $firstCategoryPost = DB::table('posts')->where('category_id', 1)->orderBy('id', 'desc')->limit(6)->get();
-                            @endphp
                             @foreach($firstCategoryPost as $row)
                                 <div class="col-lg-4 pt-2">
                                     <div class="ts-overlay-style featured-post">
@@ -318,9 +254,7 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="post-list-box ts-list-post-box ts-grid-content">
-                                    @php
-                                        $firstCategoryPostA = DB::table('posts')->where('category_id', '4')->skip(1)->orderBy('id', 'desc')->limit(2)->get();
-                                    @endphp
+
                                     @foreach($firstCategoryPostA as $row)
                                         <div class="ts-overlay-style mt-2">
                                             <div class="item">
@@ -350,9 +284,7 @@
 
                                 </div>
                             </div>
-                            @php
-                                $firstCategoryPostT = DB::table('posts')->where('category_id', '4')->first();
-                            @endphp
+
                             <div class="col-lg-8">
                                 <div class="post-list-box ts-list-post-box ts-grid-content">
                                     <div class="ts-overlay-style">
@@ -408,9 +340,7 @@
                                 <a href="#" class="view-all-link">Tümü</a>
                             </div>
                         </div>
-                        @php
-                            $scCategorySingle = DB::table('posts')->where('category_id', '5')->first();
-                        @endphp
+
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="post-list-box ts-list-post-box ts-grid-content">
@@ -442,9 +372,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @php
-                                $scCategoryM = DB::table('posts')->where('category_id', '5')->skip(1)->orderBy('id', 'desc')->limit(2)->get();
-                            @endphp
+
                             <div class="col-lg-4">
                                 <div class="post-list-box ts-list-post-box ts-grid-content">
                                     @foreach($scCategoryM as $row)
@@ -530,7 +458,7 @@
                             <div class="col-md-4" >
                                 <div class="ts-post-thumb" style="text-align-last: center;">
                                     <a href="#">
-                                        <img class="img-fluid" src="{{ (!empty($user->image)) ? url('upload/user_image/'.$user->image) : url('upload/no-image.png') }}" alt="">
+                                        <img class="img-thumbnail" src="{{ (!empty($user->image)) ? url('upload/user_image/'.$user->image) : url('upload/no-image.png') }}" alt="">
                                     </a>
                                     <h4 class="text-center mt-3 text-justify">{{ $user->name }}</h4>
                                 </div>

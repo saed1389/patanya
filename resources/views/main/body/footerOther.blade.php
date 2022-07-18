@@ -17,7 +17,7 @@
 @php
     $category = DB::table('categories')->orderBy('id', 'ASC')->get();
 @endphp
-<!-- newslater start -->
+    <!-- newslater start -->
 <section class="section-bg">
     <div class="container">
         <div class="row">

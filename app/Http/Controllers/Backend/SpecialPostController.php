@@ -24,12 +24,14 @@ class SpecialPostController extends Controller
             ->select('specialPost.*', 'specialcategory.category_tr', 'districts.district_tr')
             ->orderBy('id', 'desc')
             ->paginate(10);
+        $writers = DB::table('users')->where('type', 0)->get();
         return view('backend.specialPost.index', compact('post'));
     }
     public function Create() {
         $category = SpecialCategoryModel::all();
         $district = DB::table('districts')->get();
-        return view('backend.specialPost.create', compact('category', 'district'));
+        $writers = DB::table('users')->where('type', 0)->get();
+        return view('backend.specialPost.create', compact('category', 'district', 'writers'));
     }
 
     public function StorePost(Request $request) {
@@ -45,6 +47,7 @@ class SpecialPostController extends Controller
         $data['title_tr']       = $request->title_tr;
         $data['title_ru']       = $request->title_ru;
         $data['user_id']        = Auth::id();
+        $data['writer_id']      = $request->writer_id;
         $data['category_id']    = $request->category_id;
         $data['district_id']    = $request->district_id;
         $data['subdistrict_id'] = $request->subdistrict_id;
@@ -81,7 +84,8 @@ class SpecialPostController extends Controller
         $post = SpecialPostModel::where('id', $id)->first();
         $category = SpecialCategoryModel::all();
         $district = DB::table('districts')->get();
-        return view('backend.specialPost.edit', compact('post', 'category', 'district'));
+        $writers = DB::table('users')->where('type', 0)->get();
+        return view('backend.specialPost.edit', compact('post', 'category', 'district', 'writers'));
 
     }
 
@@ -92,6 +96,7 @@ class SpecialPostController extends Controller
         $data['title_tr']       = $request->title_tr;
         $data['title_ru']       = $request->title_ru;
         $data['user_id']        = Auth::id();
+        $data['writer_id']      = $request->writer_id;
         $data['category_id']    = $request->category_id;
         $data['district_id']    = $request->district_id;
         $data['subdistrict_id'] = $request->subdistrict_id;

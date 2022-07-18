@@ -1,8 +1,5 @@
-@extends('main.home_master')
-@section('content')
-    @php
-        $adsHome = DB::table('ads')->get();
-    @endphp
+@extends('main.other_master')
+@section('OtherPage')
 
     <section class="block-wrapper p-30 section-bg">
         <div class="container">
@@ -99,7 +96,6 @@
 
                             <div class="col-4">
                                 <div class="ts-grid-box ts-grid-content">
-                                    <a class="post-cat ts-orange-bg" href="#">Travel</a>
                                     <div class="ts-post-thumb">
                                         <a href="#">
                                             <img class="img-fluid" src="{{ asset($row->image) }}" alt="">
@@ -152,7 +148,7 @@
                         @foreach($randoms as $row)
                             <div class="col-4">
                                 <div class="ts-grid-box ts-grid-content">
-                                    <a class="post-cat ts-orange-bg" href="#">Travel</a>
+                                    <a class="post-cat ts-orange-bg" href="{{ URL::to('pataniya/'.$row->id.'/'.$row->slug) }}">{{ $row->category_tr }}</a>
                                     <div class="ts-post-thumb">
                                         <a href="#">
                                             <img class="img-fluid" src="{{ asset($row->image) }}" alt="">
@@ -165,7 +161,7 @@
                                             </a>
                                         </h3>
                                         <span class="post-date-info">
-										<i class="fa fa-clock-o"></i>
+										<i class="fa fa-clock-o"></i> {{ $row->post_date }}
 									</span>
                                     </div>
                                 </div>

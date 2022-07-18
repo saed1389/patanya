@@ -1,32 +1,47 @@
-@extends('main.home_master')
-@section('content')
-    @php
-        $adsHome = DB::table('ads')->get();
-    @endphp
-    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=62cfd45c987470001990b4f5&product=inline-share-buttons" async="async"></script>
+@extends('main.other_master')
+@section('OtherPage')
+
+    <script type="text/javascript"
+            src="https://platform-api.sharethis.com/js/sharethis.js#property=62cfd45c987470001990b4f5&product=inline-share-buttons"
+            async="async"></script>
 
     <section class="block-wrapper p-30 section-bg">
         <div class="container">
             <div class="row">
                 <div class="col-md-2" style="padding-right: 0">
-                    <div
-                        style="background-color: #f59a9a; height: 316px; margin-bottom: 5px; background-image: url({{ asset('image/r3.jpg') }}); background-repeat: round;  background-size: cover;  ">
-                    </div>
-                    <div
-                        style="background-color: #f59a9a; height: 316px; background-image: url({{ asset('image/r3.jpg') }}); background-repeat: round;  background-size: cover;">
-                    </div>
+                    @if($adsHome[3]->type == 4 && $adsHome[3]->status == 1)
+                        <a href="{{ $adsHome[3]->link }}" target="_blank">
+                            <div
+                                style="background-color: #f59a9a; height: 316px; margin-bottom: 5px; background-image: url({{ asset($adsHome[3]->ads) }}); background-repeat: round;  background-size: cover;  ">
+                            </div>
+                        </a>
+                    @endif
+                    @if($adsHome[4]->type == 5 && $adsHome[4]->status == 1)
+                        <a href="{{ $adsHome[4]->link }}" target="_blank">
+                            <div
+                                style="background-color: #f59a9a; height: 316px; background-image: url({{ asset($adsHome[4]->ads) }}); background-repeat: round;  background-size: cover;">
+                            </div>
+                        </a>
+                    @endif
                 </div>
                 <div class="col-md-8">
                     <div class="col-md-6" style="float: right; padding-left: 5px; padding-right: 0 ">
-                        <div
-                            style="background-color: #f59a9a ;height: 98px; background-image: url({{ asset('image/r2.jpg') }}); background-repeat: round;  background-size: cover;">
-
-                        </div>
+                        @if($adsHome[2]->type == 3 && $adsHome[2]->status == 1)
+                            <a href="{{ $adsHome[2]->link }}" target="_blank">
+                                <div
+                                    style="background-color: #f59a9a ;height: 98px; background-image: url({{ asset($adsHome[2]->ads) }}); background-repeat: round;  background-size: cover;">
+                                </div>
+                            </a>
+                        @endif
                     </div>
                     <div class="col-md-6 pb-3" style="padding-left: 0px; padding-right: 5px">
-                        <div
-                            style="background-color: #f59a9a; height: 98px; background-image: url({{ asset('image/r2.jpg') }}); background-repeat: round;  background-size: cover;">
-                        </div>
+                        @if($adsHome[1]->type == 2 && $adsHome[1]->status == 1)
+                            <a href="{{ $adsHome[1]->link }}" target="_blank">
+                                <div
+                                    style="background-color: #f59a9a; height: 98px; background-image: url({{ asset($adsHome[1]->ads) }}); background-repeat: round;  background-size: cover;">
+                                </div>
+                            </a>
+                        @endif
                     </div>
                     <h2 class="text-center" style="font-size: 20px">
                         @if(session()->get('lang') == 'english')
@@ -61,7 +76,7 @@
                             <div class="overlay-post-content">
                                 <div class="post-content">
                                     <h2 class="post-title lg">
-                                        <a href="#">
+                                        <a href="javascript: void (0)">
 
                                         </a>
                                     </h2>
@@ -72,30 +87,49 @@
 
 
                     <div class="col-md-12 pt-3" style="padding-right: 0; padding-left: 0">
-                        <div
-                            style="background-color: #f59a9a; height: 132px;background-image: url({{ asset('image/r4.jpg') }}); background-repeat: round;  background-size: cover;">
-                        </div>
+                        @if($adsHome[7]->type == 8 && $adsHome[7]->status == 1)
+                            <a href="{{$adsHome[7]->link}}" target="_blank">
+                                <div
+                                    style="background-color: #f59a9a; height: 132px;background-image: url( {{ asset($adsHome[7]->ads) }} ); background-repeat: round;  background-size: cover;">
+                                </div>
+                            </a>
+                        @endif
                     </div>
                     <div class="col-md-12 pt-1" style="padding-right: 0; padding-left: 0">
-                        <div
-                            style="background-color: #f59a9a; height: 132px;background-image: url({{ asset('image/r1.jpg') }}); background-repeat: round;  background-size: cover;">
-                        </div>
+                        @if($adsHome[8]->type == 9 && $adsHome[8]->status == 1)
+                            <a href="{{$adsHome[8]->link}}" target="_blank"></a>
+                            <div
+                                style="background-color: #f59a9a; height: 132px;background-image: url( {{ asset($adsHome[8]->ads) }} ); background-repeat: round;  background-size: cover;">
+                            </div>
+                        @endif
                     </div>
                     <div class="col-md-12 pt-1" style="padding-right: 0; padding-left: 0">
-                        <div
-                            style="background-color: #f59a9a; height: 132px;background-image: url({{ asset('image/r4.jpg') }}); background-repeat: round;  background-size: cover;">
-                        </div>
+                        @if($adsHome[9]->type == 10 && $adsHome[9]->status == 1)
+                            <a href="{{ $adsHome[9]->link }}" target="_blank">
+                                <div
+                                    style="background-color: #f59a9a; height: 132px;background-image: url( {{ asset($adsHome[9]->ads) }} ); background-repeat: round;  background-size: cover;">
+                                </div>
+                            </a>
+                        @endif
                     </div>
+
                 </div>
                 <div class="col-md-2" style="padding-left: 0">
-                    <div
-                        style="background-color: #f59a9a; height: 316px; margin-bottom: 5px;background-image: url({{ asset('image/r3.jpg') }}); background-repeat: round;  background-size: cover; ">
-                    </div>
-                    <div
-                        style="background-color: #f59a9a; height: 316px;background-image: url({{ asset('image/r3.jpg') }}); background-repeat: round;  background-size: cover; ">
-                    </div>
+                    @if($adsHome[5]->type == 6 && $adsHome[5]->status == 1)
+                        <a href="{{ $adsHome[5]->link }}" target="_blank">
+                            <div
+                                style="background-color: #f59a9a; height: 316px; margin-bottom: 5px;background-image: url( {{ asset($adsHome[5]->ads) }} ); background-repeat: round;  background-size: cover; ">
+                            </div>
+                        </a>
+                    @endif
+                    @if($adsHome[6]->type == 7 && $adsHome[6]->status == 1)
+                        <a href="{{ $adsHome[6]->link }}" target="_blank">
+                            <div
+                                style="background-color: #f59a9a; height: 316px;background-image: url( {{ asset($adsHome[6]->ads) }} ); background-repeat: round;  background-size: cover; ">
+                            </div>
+                        </a>
+                    @endif
                 </div>
-
             </div>
         </div>
     </section>
@@ -117,7 +151,7 @@
                         <div class="mt-1 text-center">
                             <div class="images-preview-div">
                                 @php
-                                $imagesA = explode('|', $post->images);
+                                    $imagesA = explode('|', $post->images);
                                 @endphp
                                 @foreach($imagesA as $item)
                                     <img src="{{ URL::to($item) }}" class="img-ovarlay" alt="">
@@ -142,11 +176,13 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input class="form-control" name="name" id="name" placeholder="İsim ve Soyisim" type="text" required="">
+                                        <input class="form-control" name="name" id="name" placeholder="İsim ve Soyisim"
+                                               type="text" required="">
                                     </div>
                                     <!-- form group end-->
                                     <div class="form-group">
-                                        <input class="form-control" name="email" id="email" placeholder="E-Posta" type="email" required="">
+                                        <input class="form-control" name="email" id="email" placeholder="E-Posta"
+                                               type="email" required="">
                                     </div>
                                     <!-- form group end-->
                                     <div class="form-group">
@@ -157,13 +193,16 @@
                                 <!-- Col end -->
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control msg-box" id="message" placeholder="Yorum" rows="10" required=""></textarea>
+                                        <textarea class="form-control msg-box" id="message" placeholder="Yorum"
+                                                  rows="10" required=""></textarea>
                                     </div>
                                 </div>
                             </div>
                             <!-- Form row end -->
                             <div class="clearfix">
-                                <button class="comments-btn btn btn-success pull-right" style="border-radius: 8px;" type="submit">Gönder</button>
+                                <button class="comments-btn btn btn-success pull-right" style="border-radius: 8px;"
+                                        type="submit">Gönder
+                                </button>
                             </div>
                         </form>
                         <!-- Form end -->
@@ -171,32 +210,34 @@
                 </div>
 
                 <div class="col-3">
-                    <div class="widgets widgets-item widget-banner">
-                        <a href="#">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/banner/sidebar-banner2.jpg') }}" alt="">
-                        </a>
-                    </div>
-                    <!-- widgets end -->
-
-                    <div class="widgets ts-grid-box widgets-populer-post border">
-                        <div class="item">
-                            <div class="ts-post-thumb">
-                                <a href="#">
-                                    <img class="img-fluid" src="{{ asset('frontend/assets/images/news/foods/food7.jpg') }}" alt="">
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="#">Tourism in Dubai is booming by international tourist</a>
-                                </h3>
+                    @if($adsHome[10]->type == 11 && $adsHome[10]->status == 1)
+                        <div class="widgets widgets-item widget-banner">
+                            <a href="{{ $adsHome[10]->link }}" target="_blank">
+                                <img class="img-fluid" src=" {{ asset($adsHome[10]->ads) }}" alt="">
+                            </a>
+                        </div>
+                    @endif
+                    <!-- widgets end-->
+                    @if($adsHome[11]->type == 12 && $adsHome[11]->status == 1)
+                        <div class="widgets ts-grid-box widgets-populer-post border">
+                            <div class="item">
+                                <div class="ts-post-thumb">
+                                    <a href="{{ $adsHome['11']->link }}" target="_blank">
+                                        <img class="img-fluid" src=" {{ asset($adsHome[11]->ads) }}" alt="">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
                 <div class="col-md-12 mt-4">
+                    @if($adsHome[12]->type == 13 && $adsHome[12]->status == 1)
+                        <a href="{{ $adsHome[12]->link }}" target="_blank">
                     <div
-                        style="background-color: #f59a9a; height: 224px; background-image: url({{ asset('image/r4.jpg') }}); background-repeat: round;  background-size: cover;">
+                        style="background-color: #f59a9a; height: 224px; background-image: url({{ asset($adsHome[12]->ads) }}); background-repeat: round;  background-size: cover;">
                     </div>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -212,16 +253,16 @@
                 <div class="col-4">
                     <h3 class="text-center mt-5">SIRADAKİ HABERLER</h3>
                     @php
-                    $id = $post->id - 1;
-                    $first = DB::table('posts')->where('id' , $id)->first();
+                        $id = $post->id - 1;
+                        $first = DB::table('posts')->where('id' , $id)->first();
                     @endphp
                     <div class="ts-overlay-style featured-post mt-5">
-                        <div class="item " >
+                        <div class="item ">
                             <img src="{{ asset($first->image)}}" alt="" class="img-thumbnail">
                         </div>
 
                     </div>
-                    <h4 class="text-center mt-3" >
+                    <h4 class="text-center mt-3">
                         <a href="{{ URL::to('/post/'.$first->slug) }}" style="color: black">
                             @if(session()->get('lang') == 'english')
                                 {{ $first->title_r }}
@@ -239,34 +280,34 @@
                     @endphp
                     <div class="row">
                         @foreach($second as $row)
-                        <div class="col-lg-4 col-md-6">
-                            <div class="ts-grid-box ts-grid-content">
-                                <div class="ts-post-thumb">
-                                    <a href="{{ URL::to('/post/'.$first->slug) }}">
-                                        <img class="img-fluid" src="{{ asset($row->image) }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-content">
-                                    <h3 class="post-title">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="ts-grid-box ts-grid-content">
+                                    <div class="ts-post-thumb">
                                         <a href="{{ URL::to('/post/'.$first->slug) }}">
-                                            @if(session()->get('lang') == 'english')
-                                                {!! Str:: limit($row->title_en, 40) !!}
-                                            @elseif(session()->get('lang') == 'turkish')
-                                                {!! Str:: limit($row->title_tr, 40) !!}
-                                            @elseif(session()->get('lang') == 'russian')
-                                                {!! Str:: limit($row->title_ru, 40) !!}
-                                            @endif
-
+                                            <img class="img-fluid" src="{{ asset($row->image) }}" alt="">
                                         </a>
-                                    </h3>
-                                    <span class="post-date-info">
+                                    </div>
+                                    <div class="post-content">
+                                        <h3 class="post-title">
+                                            <a href="{{ URL::to('/post/'.$first->slug) }}">
+                                                @if(session()->get('lang') == 'english')
+                                                    {!! Str:: limit($row->title_en, 40) !!}
+                                                @elseif(session()->get('lang') == 'turkish')
+                                                    {!! Str:: limit($row->title_tr, 40) !!}
+                                                @elseif(session()->get('lang') == 'russian')
+                                                    {!! Str:: limit($row->title_ru, 40) !!}
+                                                @endif
+
+                                            </a>
+                                        </h3>
+                                        <span class="post-date-info">
 										<i class="fa fa-clock-o"></i>
 										{{ $row->post_date }}
 									</span>
+                                    </div>
                                 </div>
+                                <!-- ts grid box-->
                             </div>
-                            <!-- ts grid box-->
-                        </div>
                         @endforeach
                         <!-- col end-->
                     </div>
@@ -279,42 +320,34 @@
             <div class="row">
                 <div class="col-md-12 mt-4">
                     <div class="col-lg-6 col-md-6 pull-right">
-                        <div style="background-color: #f59a9a; height: 98px; width: 456px; background-image: url({{ asset('image/r4.jpg') }}); background-repeat: round;  background-size: cover;">
+                        @if($adsHome[13]->type == 14 && $adsHome[13]->status == 1)
+                            <a href="{{ $adsHome[13]->link }}" target="_blank">
+                        <div
+                            style="background-color: #f59a9a; height: 98px; width: 456px; background-image: url({{ asset($adsHome[13]->ads) }}); background-repeat: round;  background-size: cover;">
                         </div>
+                            </a>
+                        @endif
                     </div>
                     <div class="col-lg-6 col-md-6" style="text-align: -webkit-right; text-align: -moz-right">
-                        <div style="background-color: #f59a9a; height: 98px; width: 456px; background-image: url({{ asset('image/r4.jpg') }}); background-repeat: round;  background-size: cover;">
+                        @if($adsHome[14]->type == 15 && $adsHome[14]->status == 1)
+                            <a href="{{ $adsHome[14]->link }}" target="_blank">
+                        <div
+                            style="background-color: #f59a9a; height: 98px; width: 456px; background-image: url({{ asset($adsHome[14]->ads) }}); background-repeat: round;  background-size: cover;">
                         </div>
+                            </a>
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-12 mt-4">
-                    <div style="background-color: #f59a9a; height: 224px; background-image: url({{ asset('image/r4.jpg') }}); background-repeat: round;  background-size: cover;">
+                    @if($adsHome[15]->type == 16 && $adsHome[15]->status == 1)
+                        <a href="{{ $adsHome[15]->link }}" target="_blank">
+                    <div
+                        style="background-color: #f59a9a; height: 224px; background-image: url({{ asset($adsHome[15]->ads) }}); background-repeat: round;  background-size: cover;">
                     </div>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
     </section>
-
-
-
-    {{--<script>
-        $(function () {
-// Multiple images preview with JavaScript
-            var previewImages = function (input, imgPreviewPlaceholder) {
-                if (input.files) {
-                    var filesAmount = input.files.length;
-                    for (i = 0; i < filesAmount; i++) {
-                        var reader = new FileReader();
-                        reader.onload = function (event) {
-                            $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
-                        }
-                        reader.readAsDataURL(input.files[i]);
-                    }
-                }
-            };
-            $('#images').on('change', function () {
-                previewImages(this, 'div.images-preview-div');
-            });
-        });
-    </script>--}}
 @endsection

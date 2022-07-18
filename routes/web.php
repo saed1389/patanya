@@ -142,9 +142,12 @@ Route::get('/lang/russian', [ExtraController::class, 'Russian'])->name('lang.rus
 
 // Single Post Page
 Route::get('/post/{slug}', [ExtraController::class, 'SinglePost']);
+Route::get('/contact', [ExtraController::class, 'Contact'])->name('contact');
+Route::get('/imprint', [ExtraController::class, 'imprint'])->name('imprint');
 
 // Post Category and SubCategory Pages
 Route::get('/pataniya/{id}/{slug}', [ExtraController::class, 'CatPost']);
+Route::get('/Special/{id}/{slug}', [ExtraController::class, 'SpecialCat']);
 Route::get('/subcatpost/{id}/{slug}', [ExtraController::class, 'SubCatPost']);
 
 // Search District In Home page
@@ -175,6 +178,7 @@ Route::post('/store/writer', [RoleController::class, 'StoreWriter'])->name('stor
 Route::get('/all/writer', [RoleController::class, 'AllWriter'])->name('all.writer');
 Route::get('/edit/writer/{id}', [RoleController::class, 'EditWriter'])->name('edit.writer');
 Route::post('/update/writer/{id}', [RoleController::class, 'UpdateWriter'])->name('update.writer');
+Route::get('/delete/writer/{id}', [RoleController::class, 'DeleteWriter'])->name('delete.writer');
 
 // All Website Setting Routes
 Route::get('/web/setting', [WebsiteSettingController::class, 'MainWebSetting'])->name('website.setting');

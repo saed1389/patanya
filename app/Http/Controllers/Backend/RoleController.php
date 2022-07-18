@@ -81,4 +81,15 @@ class RoleController extends Controller
 
         return Redirect()->route('all.writer')->with($notification);
     }
+
+    public function DeleteWriter($id) {
+        DB::table('users')->where('id', $id)->delete();
+
+        $notification = array(
+            'message' => 'Users Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return Redirect()->route('all.writer')->with($notification);
+    }
 }

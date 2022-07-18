@@ -20,15 +20,15 @@
                    style="width: 1298px;">
                 <thead>
                 <tr>
-                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 50px;"> #</th>
-                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 375px;">Post Special Title</th>
-                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 194px;">Category</th>
-                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;">Image</th>
-                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;">Post Date</th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 2%;"> #</th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 30%;">Post Special Title</th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 20%;">Category</th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 18%;">Image</th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 10%;">Post Date</th>
                     @if(Auth::user()->type == 1)
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;">Status</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 5%">Status</th>
                     @endif
-                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 133px;">Action</th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 15%">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,7 +38,6 @@
                         <td>{{ $i++ }}</td>
                         <td>{{ Str::limit($row->title_tr, 20) }}</td>
                         <td>{{ $row->category_tr }}</td>
-                        <td>{{ $row->district_tr }}</td>
                         <td><img src="{{ $row->image }}" alt="" style="width: 50px; height: 50px"></td>
                         <td>{{ \Carbon\Carbon::parse($row->post_date)->diffForHumans() }}</td>
                         @if(Auth::user()->type == 1)

@@ -52,7 +52,21 @@
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
+                            <div class="col-12">
+                                <label class="form-group float-label">
+                                    <select class="form-control form-control-lg custom-select" name="category_id">
+                                        <option value="">-- Select Category --</option>
+                                        @foreach($writers as $row)
+                                            <option value="{{ $row->id }}"
+                                            <?php if ($row->id == $post->writer_id) {
+                                                echo 'selected';
+                                            } ?>
+                                            >{{ $row->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <span>Writer</span>
+                                </label>
+                            </div>
                             <div class="col-12">
                                 <label class="form-group float-label">
                                     <select class="form-control form-control-lg custom-select" name="category_id">

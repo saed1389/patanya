@@ -45,7 +45,17 @@
                                   <label class="form-label" for="title_ru">Title Russian</label>
                                 </span>
                             </div>
-
+                            <div class="col-12">
+                                <label class="form-group float-label">
+                                    <select class="form-control form-control-lg custom-select" name="writer_id">
+                                        <option value="">-- Select Writer --</option>
+                                        @foreach($writers as $row)
+                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <span>Writer</span>
+                                </label>
+                            </div>
                             <div class="col-12">
                                 <label class="form-group float-label">
                                     <select class="form-control form-control-lg custom-select" name="category_id">

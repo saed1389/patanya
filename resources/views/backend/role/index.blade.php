@@ -6,9 +6,9 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-title">
-                        <h4>Category page</h4>
+                        <h4>Writer page</h4>
                         <div class="">
-                            <a href="{{ route('add.category') }}"><button class="btn btn-primary btn-fw" style="float: right">Add Category</button></a>
+                            <a href="{{ route('add.writer') }}"><button class="btn btn-primary btn-fw" style="float: right">Add Writer</button></a>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
 
                         <td>
                             <a href="{{ route('edit.writer', $row->id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ route('delete.category', $row->id) }}" onclick="return confirm('Are You Sure To Delete?')" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('delete.writer', $row->id) }}" onclick="return confirm('Are You Sure To Delete?')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 @endforeach

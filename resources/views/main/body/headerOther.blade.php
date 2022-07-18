@@ -1,8 +1,6 @@
 @php
     $category = DB::table('categories')->orderBy('id', 'ASC')->get();
-    $SpecialCategory = DB::table('specialcategory')->orderBy('id', 'ASC')->get();
 	$social = DB::table('socials')->first();
-
 @endphp
 <style>
     .news {
@@ -228,21 +226,20 @@
                     </div>
                 </nav>
             </div>
-
             <div class="col-lg-10 pull-left">
-                <a href="{{ URL::to('Special/'.$SpecialCategory[0]->id.'/'.$SpecialCategory[0]->slug) }}" class="btn btn-danger"
+                <a href="#" class="btn btn-danger"
                    style="background-color: #DF6D6C; border-color: #DF6D6C; color: white;padding: 13px 30px;margin-left: -4px;">EĞİTİM
                     REHBERİ</a>
-                <a href="{{ URL::to('Special/'.$SpecialCategory[1]->id.'/'.$SpecialCategory[1]->slug) }}" class="btn btn-danger"
+                <a href="#" class="btn btn-danger"
                    style="background-color: #E99F9C; border-color: #E99F9C; color: white;padding: 13px 30px;margin-left: -4px;">TURİZM
                     DÜNYASI</a>
-                <a href="{{ URL::to('Special/'.$SpecialCategory[2]->id.'/'.$SpecialCategory[2]->slug) }}" class="btn btn-danger"
+                <a href="#" class="btn btn-danger"
                    style="background-color: #B2D1ED; border-color: #B2D1ED; color: white;padding: 13px 30px;margin-left: -4px;">EMLAK
                     DÜNYASI</a>
-                <a href="{{ URL::to('Special/'.$SpecialCategory[3]->id.'/'.$SpecialCategory[3]->slug) }}" class="btn btn-danger"
+                <a href="#" class="btn btn-danger"
                    style="background-color: #F4E6A5; border-color: #F4E6A5; color: white;padding: 13px 30px;margin-left: -4px;">SAĞLIK
                     REHBERİM</a>
-                <a href="{{ URL::to('Special/'.$SpecialCategory[4]->id.'/'.$SpecialCategory[4]->slug) }}" class="btn btn-danger"
+                <a href="#" class="btn btn-danger"
                    style="background-color: #B8CDDE; border-color: #B8CDDE; color: white;padding: 13px 30px;margin-left: -4px;">SİVİL
                     TOPLUM</a>
             </div>
@@ -255,7 +252,6 @@
 <section class="block-wrapper section-bg">
     <div class="container">
         <div class="row">
-
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
