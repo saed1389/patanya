@@ -1,5 +1,8 @@
 @extends('main.home_master')
 @section('content')
+    @php
+        $adsHome = DB::table('ads')->get();
+    @endphp
     <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=62cfd45c987470001990b4f5&product=inline-share-buttons" async="async"></script>
 
     <section class="block-wrapper p-30 section-bg">

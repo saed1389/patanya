@@ -14,7 +14,9 @@
     </div>
 </section>
 <!-- footer social list end-->
-
+@php
+    $category = DB::table('categories')->orderBy('id', 'ASC')->get();
+@endphp
 <!-- newslater start -->
 <section class="section-bg">
     <div class="container">
@@ -22,14 +24,18 @@
             <div class="col-lg-12">
                 <div class="nav-menus-wrapper clearfix">
                     <ul class="nav-menu">
-                        <li><a href="#">GÜNDEM</a></li>
-                        <li><a href="#">YURTTAN HABERLER</a></li>
-                        <li><a href="#">DÜNYA</a></li>
-                        <li><a href="#">TÜRKİYE</a></li>
-                        <li><a href="#">GÜNEY KIBRIS</a></li>
-                        <li><a href="#">EKONOMİ</a></li>
-                        <li><a href="#">KÜLTÜR - SANAT</a></li>
-                        <li><a href="#">SPOR</a></li>
+                        @foreach($category as $row)
+                            <li>
+                                <a href="{{ URL::to('pataniya/'.$row->id.'/'.$row->slug) }}">
+                                    @if(session()->get('lang') == 'english')
+                                        {{ $row->category_en }}
+                                    @elseif(session()->get('lang') == 'turkish')
+                                        {{ $row->category_tr }}
+                                    @elseif(session()->get('lang') == 'russian')
+                                    @endif
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

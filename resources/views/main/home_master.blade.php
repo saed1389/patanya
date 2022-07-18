@@ -1,6 +1,7 @@
 @php
     $seo = DB:: table('seos')->first();
-    $ads = DB:: table('ads')->first();
+/*    $adsHome = DB::table('ads')->where('status', 1)->get();
+*/
 @endphp
 <!doctype html>
 <html lang="tr-TR">

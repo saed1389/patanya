@@ -81,10 +81,10 @@
     <div class="">
         <div class="row" style="text-align: center; text-align: -webkit-center">
             <div class="col-lg-12 md-center-item">
-                @if($ads->type == 1)
-                    <a href="{!! $ads->link !!}" target="_blank">
+                @if($adsHome[0]->type == 1 && $adsHome[0]->status == 1)
+                    <a href="" target="_blank">
                         <div style="height: 332px; width: 1440px; background-image: url(
-                            {{ asset($ads->ads) }}
+                            {{ asset($adsHome[0]->ads) }}
                             ); background-repeat: no-repeat;  background-size: cover;">
                         </div>
                     </a>

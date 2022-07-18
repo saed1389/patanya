@@ -1,6 +1,8 @@
 @extends('main.home_master')
 @section('content')
-
+    @php
+        $adsHome = DB::table('ads')->get();
+    @endphp
 
     <section class="block-wrapper p-30 section-bg">
         <div class="container">
@@ -29,7 +31,7 @@
                                 <div class="overlay-post-content">
                                     <div class="post-content">
                                         <h2 class="post-title lg">
-                                            <a href="#">
+                                            <a href="{{ URL::to('/post/'.$row->slug) }}">
                                                 @if(session()->get('lang') == 'english')
                                                     {{$row->title_en}}
                                                 @elseif(session()->get('lang') == 'turkish')
@@ -105,7 +107,7 @@
                                     </div>
                                     <div class="post-content">
                                         <h3 class="post-title">
-                                            <a href="#">
+                                            <a href="{{ URL::to('/post/'.$row->slug) }}">
                                                 {{ $row->title_tr }}
                                             </a>
                                         </h3>
@@ -158,7 +160,7 @@
                                     </div>
                                     <div class="post-content">
                                         <h3 class="post-title">
-                                            <a href="#">
+                                            <a href="{{ URL::to('/post/'.$row->slug) }}">
                                                 {{ $row->title_tr }}
                                             </a>
                                         </h3>
