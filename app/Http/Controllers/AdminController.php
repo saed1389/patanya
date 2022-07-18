@@ -38,8 +38,8 @@ class AdminController extends Controller
 
         if ($request->file('image')) {
             $file = $request->file('image');
-            @unlink(public_path('upload/user_images/'.$data->image));
-            $filename = date('YmdHi').$file->getClientOriginalExtension();
+            @unlink(public_path('upload/user_image/'.$data->image));
+            $filename = date('YmdHi').'.'.$file->getClientOriginalExtension();
             $file->move(public_path('upload/user_image'),$filename);
             $data['image'] = $filename;
 
