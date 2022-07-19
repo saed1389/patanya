@@ -233,9 +233,9 @@
                 <div class="col-md-12 mt-4">
                     @if($adsHome[12]->type == 13 && $adsHome[12]->status == 1)
                         <a href="{{ $adsHome[12]->link }}" target="_blank">
-                    <div
-                        style="background-color: #f59a9a; height: 224px; background-image: url({{ asset($adsHome[12]->ads) }}); background-repeat: round;  background-size: cover;">
-                    </div>
+                            <div
+                                style="background-color: #f59a9a; height: 224px; background-image: url({{ asset($adsHome[12]->ads) }}); background-repeat: round;  background-size: cover;">
+                            </div>
                         </a>
                     @endif
                 </div>
@@ -247,74 +247,7 @@
         </div>
     </section>
     <hr>
-    <section class="block-wrapper hot-topics-item">
-        <div class="container">
-            <div class="row">
-                <div class="col-4">
-                    <h3 class="text-center mt-5">SIRADAKİ HABERLER</h3>
-                    @php
-                        $id = $post->id - 1;
-                        $first = DB::table('posts')->where('id' , $id)->first();
-                    @endphp
-                    <div class="ts-overlay-style featured-post mt-5">
-                        <div class="item ">
-                            <img src="{{ asset($first->image)}}" alt="" class="img-thumbnail">
-                        </div>
 
-                    </div>
-                    <h4 class="text-center mt-3">
-                        <a href="{{ URL::to('/post/'.$first->slug) }}" style="color: black">
-                            @if(session()->get('lang') == 'english')
-                                {{ $first->title_r }}
-                            @elseif(session()->get('lang') == 'turkish')
-                                {{ $first->title_en }}
-                            @elseif(session()->get('lang') == 'russian')
-                                {{ $first->title_ru }}
-                            @endif
-                        </a>
-                    </h4>
-                </div>
-                <div class="col-8">
-                    @php
-                        $second = DB::table('posts')->inRandomOrder()->limit(6)->get();
-                    @endphp
-                    <div class="row">
-                        @foreach($second as $row)
-                            <div class="col-lg-4 col-md-6">
-                                <div class="ts-grid-box ts-grid-content">
-                                    <div class="ts-post-thumb">
-                                        <a href="{{ URL::to('/post/'.$row->slug) }}">
-                                            <img class="img-fluid" src="{{ asset($row->image) }}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="post-content">
-                                        <h3 class="post-title">
-                                            <a href="{{ URL::to('/post/'.$row->slug) }}">
-                                                @if(session()->get('lang') == 'english')
-                                                    {!! Str:: limit($row->title_en, 40) !!}
-                                                @elseif(session()->get('lang') == 'turkish')
-                                                    {!! Str:: limit($row->title_tr, 40) !!}
-                                                @elseif(session()->get('lang') == 'russian')
-                                                    {!! Str:: limit($row->title_ru, 40) !!}
-                                                @endif
-
-                                            </a>
-                                        </h3>
-                                        <span class="post-date-info">
-										<i class="fa fa-clock-o"></i>
-										{{ $row->post_date }}
-									</span>
-                                    </div>
-                                </div>
-                                <!-- ts grid box-->
-                            </div>
-                        @endforeach
-                        <!-- col end-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="block-wrapper hot-topics-item">
         <div class="container">
             <div class="row">
@@ -322,18 +255,18 @@
                     <div class="col-lg-6 col-md-6 pull-right">
                         @if($adsHome[13]->type == 14 && $adsHome[13]->status == 1)
                             <a href="{{ $adsHome[13]->link }}" target="_blank">
-                        <div
-                            style="background-color: #f59a9a; height: 98px; width: 456px; background-image: url({{ asset($adsHome[13]->ads) }}); background-repeat: round;  background-size: cover;">
-                        </div>
+                                <div
+                                    style="background-color: #f59a9a; height: 98px; width: 456px; background-image: url({{ asset($adsHome[13]->ads) }}); background-repeat: round;  background-size: cover;">
+                                </div>
                             </a>
                         @endif
                     </div>
                     <div class="col-lg-6 col-md-6" style="text-align: -webkit-right; text-align: -moz-right">
                         @if($adsHome[14]->type == 15 && $adsHome[14]->status == 1)
                             <a href="{{ $adsHome[14]->link }}" target="_blank">
-                        <div
-                            style="background-color: #f59a9a; height: 98px; width: 456px; background-image: url({{ asset($adsHome[14]->ads) }}); background-repeat: round;  background-size: cover;">
-                        </div>
+                                <div
+                                    style="background-color: #f59a9a; height: 98px; width: 456px; background-image: url({{ asset($adsHome[14]->ads) }}); background-repeat: round;  background-size: cover;">
+                                </div>
                             </a>
                         @endif
                     </div>
@@ -341,9 +274,9 @@
                 <div class="col-md-12 mt-4">
                     @if($adsHome[15]->type == 16 && $adsHome[15]->status == 1)
                         <a href="{{ $adsHome[15]->link }}" target="_blank">
-                    <div
-                        style="background-color: #f59a9a; height: 224px; background-image: url({{ asset($adsHome[15]->ads) }}); background-repeat: round;  background-size: cover;">
-                    </div>
+                            <div
+                                style="background-color: #f59a9a; height: 224px; background-image: url({{ asset($adsHome[15]->ads) }}); background-repeat: round;  background-size: cover;">
+                            </div>
                         </a>
                     @endif
                 </div>

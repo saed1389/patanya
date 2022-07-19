@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\WebsiteSettingController;
 use App\Http\Controllers\Backend\SpecialCategoryController;
 use App\Http\Controllers\Backend\NewspaperController;
 use App\Http\Controllers\Backend\SpecialPostController;
+use App\Http\Controllers\XmlDataController;
 use App\Http\Controllers\Frontend\ExtraController;
 use App\Http\Controllers\Frontend\HomePageController;
 
@@ -142,6 +143,8 @@ Route::get('/lang/russian', [ExtraController::class, 'Russian'])->name('lang.rus
 
 // Single Post Page
 Route::get('/post/{slug}', [ExtraController::class, 'SinglePost']);
+Route::get('/SpecialPost/{slug}', [ExtraController::class, 'SpecialPost']);
+
 Route::get('/contact', [ExtraController::class, 'Contact'])->name('contact');
 Route::get('/imprint', [ExtraController::class, 'imprint'])->name('imprint');
 
@@ -200,6 +203,10 @@ Route::post('/store/specialCategory', [SpecialCategoryController::class, 'StoreS
 Route::get('/edit/specialCategory/{id}', [SpecialCategoryController::class, 'EditSpecialCategory'])->name('edit.specialCategory');
 Route::post('/update/specialCategory/{id}', [SpecialCategoryController::class, 'UpdateSpecialCategory'])->name('update.specialCategory');
 Route::get('/delete/specialCategory/{id}', [SpecialCategoryController::class, 'DeleteSpecialCategory'])->name('delete.specialCategory');
+
+// Bot Route
+Route::get('/bot', [XmlDataController::class, 'index'])->name('all.bot');
+Route::get('/bot/ntvTurkey', [XmlDataController::class, 'ntvTurkey'])->name('ntvTurkey.bot');
 
 //Special Post
 Route::get('/allSpecialPost', [SpecialPostController::class, 'Index'])->name('all.SpecialPost');

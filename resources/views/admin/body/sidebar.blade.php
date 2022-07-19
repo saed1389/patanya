@@ -125,6 +125,7 @@
                         <li><a class="ms-link" href="{{ route('livetv.setting') }}">Live TV Setting</a></li>
                         <li><a class="ms-link" href="{{ route('notice.setting') }}">Notice Setting</a></li>
                         <li> <a class="ms-link" href="{{ route('website.setting') }}">Website Settings </a></li>
+                        <li> <a class="ms-link" href="{{ route('all.bot') }}">Auto News </a></li>
                     </ul>
                 </li>
                 @else

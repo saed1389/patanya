@@ -36,9 +36,8 @@ class ExtraController extends Controller
             ->join('users','posts.user_id','users.id')
             ->select('posts.*','categories.category_en','categories.category_tr','subcategories.subcategory_en','subcategories.subcategory_tr','users.name')
             ->where('posts.slug',$slug)->first();
-        $adsHome = DB::table('ads')->get();
+        $adsHome = DB::table('ads2')->get();
         return view('main.single_post',compact('post', 'adsHome'));
-
     }
 
     public function Contact() {
@@ -51,6 +50,16 @@ class ExtraController extends Controller
         return view('main.imprint', compact('adsHome'));
     }
 
+    public function SpecialPost($slug){
+        $post = DB::table('specialpost')
+            ->join('specialcategory','specialpost.category_id','specialcategory.id')
+            ->join('users','specialpost.user_id','users.id')
+            ->select('specialpost.*','specialcategory.category_en','specialcategory.category_tr', 'users.name')
+            ->where('specialpost.slug',$slug)->first();
+        $adsHome = DB::table('ads2')->get();
+        return view('main.SpecialSingle_post',compact('post', 'adsHome'));
+    }
+
     public function SpecialCat($id, $slug) {
         $sliders = DB::table('specialpost')->where('category_id',$id)->orderBy('id','desc')->limit(18)->get();
         $allPosts = DB::table('specialpost')->where('category_id', $id)->skip(18)->orderBy('id', 'desc')->paginate(12);
@@ -59,7 +68,7 @@ class ExtraController extends Controller
             ->select('specialpost.*', 'specialcategory.*')
             ->where('category_id', $id)->inRandomOrder()->limit(6)->get();
         $category = DB::table('specialcategory')->where('id', $id)->first();
-        $adsHome = DB::table('ads2')->get();
+        $adsHome = DB::table('ads')->get();
         return view('main.specialCat',compact('sliders', 'allPosts', 'randoms', 'category', 'adsHome'));
     }
 
@@ -69,10 +78,10 @@ class ExtraController extends Controller
         $allPosts = DB::table('posts')->where('category_id', $id)->skip(18)->orderBy('id', 'desc')->paginate(12);
         $randoms = DB::table('posts')
             ->join('categories','posts.category_id','categories.id')
-            ->select('posts.*', 'categories.*')
+            ->select('posts.*', 'categories.category_tr', 'categories.category_en')
             ->where('category_id', $id)->inRandomOrder()->limit(6)->get();
         $category = DB::table('categories')->where('id', $id)->first();
-        $adsHome = DB::table('ads2')->get();
+        $adsHome = DB::table('ads')->get();
         return view('main.allpost',compact('sliders', 'allPosts', 'randoms', 'category', 'adsHome'));
 
     }

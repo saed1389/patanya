@@ -47,7 +47,7 @@
                                 <div class="overlay-post-content">
                                     <div class="post-content">
                                         <h2 class="post-title lg">
-                                            <a href="#">
+                                            <a href="{{ URL::to('/post/'.$row->slug) }}">
                                                 @if(session()->get('lang') == 'english')
                                                     {{$row->title_en}}
                                                 @elseif(session()->get('lang') == 'turkish')
@@ -197,7 +197,7 @@
                                 @endif
                             </h2>
                             <div class="float-right">
-                                <a href="#" class="view-all-link">Tümü</a>
+                                <a href="{{ URL::to('/pataniya/1/Gundem') }}" class="view-all-link">Tümü</a>
                             </div>
                         </div>
                         <div class="row ts-post-style-2">
@@ -248,7 +248,7 @@
 
                             </h2>
                             <div class="float-right">
-                                <a href="#" class="view-all-link">Tümü</a>
+                                <a href="{{ URL::to('/pataniya/4/Turkiye') }}" class="view-all-link">Tümü</a>
                             </div>
                         </div>
                         <div class="row">
@@ -337,7 +337,7 @@
                                 @endif
                             </h2>
                             <div class="float-right">
-                                <a href="#" class="view-all-link">Tümü</a>
+                                <a href="{{ URL::to('/pataniya/5/Guney-Kibris') }}" class="view-all-link">Tümü</a>
                             </div>
                         </div>
 
@@ -447,9 +447,7 @@
                         <h2 class="ts-title float-left">
                             YAZARLARIMIZ
                         </h2>
-
                     </div>
-
                     <div class="post-list">
                         <p style="color: #D3D3D3">Tüm Yazarlar</p>
                         <!-- ts title end-->
