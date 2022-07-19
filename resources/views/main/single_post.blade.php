@@ -71,6 +71,7 @@
                         <div class="sharethis-inline-share-buttons"></div>
                     </div>
 
+
                     <div class="ts-overlay-style featured-post owl-carousel" id="featured-slider-5">
                         <div class="item" style="background-image:url({{ asset($post->image) }})">
                             <div class="overlay-post-content">
@@ -250,7 +251,7 @@
     <section class="block-wrapper hot-topics-item">
         <div class="container">
             <div class="row">
-                <div class="col-4">
+                {{--<div class="col-4">
                     <h3 class="text-center mt-5">SIRADAKİ HABERLER</h3>
                     @php
                         $id = $post->id - 1;
@@ -273,8 +274,8 @@
                             @endif
                         </a>
                     </h4>
-                </div>
-                <div class="col-8">
+                </div>--}}
+                <div class="col-12">
                     @php
                         $second = DB::table('posts')->inRandomOrder()->limit(6)->get();
                     @endphp

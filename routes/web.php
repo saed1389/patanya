@@ -206,7 +206,12 @@ Route::get('/delete/specialCategory/{id}', [SpecialCategoryController::class, 'D
 
 // Bot Route
 Route::get('/bot', [XmlDataController::class, 'index'])->name('all.bot');
+Route::get('/bot/ntvEconomy', [XmlDataController::class, 'ntvEconomy'])->name('ntvEconomy.bot');
 Route::get('/bot/ntvTurkey', [XmlDataController::class, 'ntvTurkey'])->name('ntvTurkey.bot');
+Route::get('/bot/ntvWorld', [XmlDataController::class, 'ntvWorld'])->name('ntvWorld.bot');
+Route::get('/bot/ntvHealth', [XmlDataController::class, 'ntvHealth'])->name('ntvHealth.bot');
+Route::get('/bot/ntvSport', [XmlDataController::class, 'ntvSport'])->name('ntvSport.bot');
+Route::get('/bot/ntvPolicy', [XmlDataController::class, 'ntvPolicy'])->name('ntvPolicy.bot');
 
 //Special Post
 Route::get('/allSpecialPost', [SpecialPostController::class, 'Index'])->name('all.SpecialPost');

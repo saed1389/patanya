@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 
 class XmlDataController extends Controller
@@ -11,28 +14,319 @@ class XmlDataController extends Controller
         return view('backend.setting.bot');
     }
 
-    public function ntvTurkey(Request $request) {
-        /*$curl = curl_init();
+    public function ntvEconomy(Request $request) {
 
-        curl_setopt_array($curl, Array(
-            CURLOPT_URL            => 'https://www.ntv.com.tr/turkiye.rss',
-            CURLOPT_RETURNTRANSFER => TRUE,
-            CURLOPT_ENCODING       => 'UTF-8'
-        ));
+        $data = array();
 
-        $data = curl_exec($curl);
-        curl_close($curl);
+        $response = Http::get('https://brtk.net/wp-json/wp/v2/posts?categories=26&_embed&per_page=5');
+        /*        $response->body();*/
+        $json = $response->json();
+        foreach ($json as $item) {
 
-        $xml = simplexml_load_string($data);*/
+            $string = $item['content']['rendered'] . '<br>';
+            $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
+            if (preg_match_all("/$regexp/", $string, $matches, PREG_SET_ORDER)) {
+                $img_src = $matches[0][0];
+            }
+            $regex = "/<img[^>]+>/i";
+            $regex1 = '/href=["\']?([^"\'>]+)"/i';
+            $content = preg_replace($regex, ' ', $string);
+            $content1 = preg_replace($regex1, ' ', $content);
+            $url = $img_src;
+            $image_name = ( stristr($url, '?', true) ) ? stristr($url, '?', true) : $url;
+            $pos = strrpos($image_name, '/');
+            $image_name = substr($image_name, $pos + 1);
+            $extension = stristr($image_name, '.');
 
-        $rssUrl = 'https://www.ntv.com.tr/turkiye.rss';
-        $xmlObject = simplexml_load_string($rssUrl);
+            if ($extension == '.jpg' || $extension == '.png' || $extension == '.gif' || $extension == '.jpeg') {
+                 $image_name = $image_name;
+            }
+
+            $img = public_path('image/postimg/'.$image_name);
+            file_put_contents($img, file_get_contents($url));
+
+            $data['title_tr'] = $item['title']['rendered'];
+            $data['slug'] = $item['slug'];
+            $data['details_tr'] = $content1;
+            $data['image'] = 'image/postimg/'.$image_name;
+            $data['category_id'] = 6;
+            $data['user_id'] = Auth::user()->id;
+            $data['source'] = 'BRTK';
+
+            DB::table('posts')->insert($data);
+
+            $notification = array(
+                'message' => 'Post Updated Successfully',
+                'alert-type' => 'success'
+            );
 
 
-        $json = json_encode($xmlObject);
-        $phpDataArray = json_encode($json, true);
-
-        echo "<pre>";
-        dd($phpDataArray);
+        }
+        return Redirect()->back()->with($notification);
     }
+
+
+    public function ntvTurkey(Request $request) {
+
+        $data = array();
+
+        $response = Http::get('https://brtk.net/wp-json/wp/v2/posts?categories=23&_embed&per_page=5');
+        /*        $response->body();*/
+        $json = $response->json();
+        foreach ($json as $item) {
+
+            $string = $item['content']['rendered'] . '<br>';
+            $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
+            if (preg_match_all("/$regexp/", $string, $matches, PREG_SET_ORDER)) {
+                $img_src = $matches[0][0];
+            }
+            $regex = "/<img[^>]+>/i";
+            $regex1 = '/href=["\']?([^"\'>]+)"/i';
+            $content = preg_replace($regex, ' ', $string);
+            $content1 = preg_replace($regex1, ' ', $content);
+            $url = $img_src;
+            $image_name = ( stristr($url, '?', true) ) ? stristr($url, '?', true) : $url;
+            $pos = strrpos($image_name, '/');
+            $image_name = substr($image_name, $pos + 1);
+            $extension = stristr($image_name, '.');
+
+            if ($extension == '.jpg' || $extension == '.png' || $extension == '.gif' || $extension == '.jpeg') {
+                $image_name = $image_name;
+            }
+
+            $img = public_path('image/postimg/'.$image_name);
+            file_put_contents($img, file_get_contents($url));
+
+            $data['title_tr'] = $item['title']['rendered'];
+            $data['slug'] = $item['slug'];
+            $data['details_tr'] = $content1;
+            $data['image'] = 'image/postimg/'.$image_name;
+            $data['category_id'] = 4;
+            $data['user_id'] = Auth::user()->id;
+            $data['source'] = 'BRTK';
+
+            DB::table('posts')->insert($data);
+
+            $notification = array(
+                'message' => 'Post Updated Successfully',
+                'alert-type' => 'success'
+            );
+
+
+        }
+        return Redirect()->back()->with($notification);
+    }
+
+
+    public function ntvWorld(Request $request) {
+
+        $data = array();
+
+        $response = Http::get('https://brtk.net/wp-json/wp/v2/posts?categories=22&_embed&per_page=5');
+        /*        $response->body();*/
+        $json = $response->json();
+        foreach ($json as $item) {
+
+            $string = $item['content']['rendered'] . '<br>';
+            $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
+            if (preg_match_all("/$regexp/", $string, $matches, PREG_SET_ORDER)) {
+                $img_src = $matches[0][0];
+            }
+            $regex = "/<img[^>]+>/i";
+            $regex1 = '/href=["\']?([^"\'>]+)"/i';
+            $content = preg_replace($regex, ' ', $string);
+            $content1 = preg_replace($regex1, ' ', $content);
+            $url = $img_src;
+            $image_name = ( stristr($url, '?', true) ) ? stristr($url, '?', true) : $url;
+            $pos = strrpos($image_name, '/');
+            $image_name = substr($image_name, $pos + 1);
+            $extension = stristr($image_name, '.');
+
+            if ($extension == '.jpg' || $extension == '.png' || $extension == '.gif' || $extension == '.jpeg') {
+                $image_name = $image_name;
+            }
+
+            $img = public_path('image/postimg/'.$image_name);
+            file_put_contents($img, file_get_contents($url));
+
+            $data['title_tr'] = $item['title']['rendered'];
+            $data['slug'] = $item['slug'];
+            $data['details_tr'] = $content1;
+            $data['image'] = 'image/postimg/'.$image_name;
+            $data['category_id'] = 3;
+            $data['user_id'] = Auth::user()->id;
+            $data['source'] = 'BRTK';
+
+            DB::table('posts')->insert($data);
+
+            $notification = array(
+                'message' => 'Post Updated Successfully',
+                'alert-type' => 'success'
+            );
+
+
+        }
+        return Redirect()->back()->with($notification);
+    }
+
+
+    public function ntvHealth(Request $request) {
+
+        $data = array();
+
+        $response = Http::get('https://brtk.net/wp-json/wp/v2/posts?categories=5&_embed&per_page=5');
+        /*        $response->body();*/
+        $json = $response->json();
+        foreach ($json as $item) {
+
+            $string = $item['content']['rendered'] . '<br>';
+            $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
+            if (preg_match_all("/$regexp/", $string, $matches, PREG_SET_ORDER)) {
+                $img_src = $matches[0][0];
+            }
+            $regex = "/<img[^>]+>/i";
+            $regex1 = '/href=["\']?([^"\'>]+)"/i';
+            $content = preg_replace($regex, ' ', $string);
+            $content1 = preg_replace($regex1, ' ', $content);
+            $url = $img_src;
+            $image_name = ( stristr($url, '?', true) ) ? stristr($url, '?', true) : $url;
+            $pos = strrpos($image_name, '/');
+            $image_name = substr($image_name, $pos + 1);
+            $extension = stristr($image_name, '.');
+
+            if ($extension == '.jpg' || $extension == '.png' || $extension == '.gif' || $extension == '.jpeg') {
+                $image_name = $image_name;
+            }
+
+            $img = public_path('image/postimg/'.$image_name);
+            file_put_contents($img, file_get_contents($url));
+
+            $data['title_tr'] = $item['title']['rendered'];
+            $data['slug'] = $item['slug'];
+            $data['details_tr'] = $content1;
+            $data['image'] = 'image/postimg/'.$image_name;
+            $data['category_id'] = 3;
+            $data['user_id'] = Auth::user()->id;
+            $data['source'] = 'BRTK';
+
+            DB::table('posts')->insert($data);
+
+            $notification = array(
+                'message' => 'Post Updated Successfully',
+                'alert-type' => 'success'
+            );
+
+
+        }
+        return Redirect()->back()->with($notification);
+    }
+
+
+    public function ntvSport(Request $request) {
+
+        $data = array();
+
+        $response = Http::get('https://brtk.net/wp-json/wp/v2/posts?categories=3&_embed&per_page=5');
+        /*        $response->body();*/
+        $json = $response->json();
+        foreach ($json as $item) {
+
+            $string = $item['content']['rendered'] . '<br>';
+            $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
+            if (preg_match_all("/$regexp/", $string, $matches, PREG_SET_ORDER)) {
+                $img_src = $matches[0][0];
+            }
+            $regex = "/<img[^>]+>/i";
+            $regex1 = '/href=["\']?([^"\'>]+)"/i';
+            $content = preg_replace($regex, ' ', $string);
+            $content1 = preg_replace($regex1, ' ', $content);
+            $url = $img_src;
+            $image_name = ( stristr($url, '?', true) ) ? stristr($url, '?', true) : $url;
+            $pos = strrpos($image_name, '/');
+            $image_name = substr($image_name, $pos + 1);
+            $extension = stristr($image_name, '.');
+
+            if ($extension == '.jpg' || $extension == '.png' || $extension == '.gif' || $extension == '.jpeg') {
+                $image_name = $image_name;
+            }
+
+            $img = public_path('image/postimg/'.$image_name);
+            file_put_contents($img, file_get_contents($url));
+
+            $data['title_tr'] = $item['title']['rendered'];
+            $data['slug'] = $item['slug'];
+            $data['details_tr'] = $content1;
+            $data['image'] = 'image/postimg/'.$image_name;
+            $data['category_id'] = 8;
+            $data['user_id'] = Auth::user()->id;
+            $data['source'] = 'BRTK';
+
+            DB::table('posts')->insert($data);
+
+            $notification = array(
+                'message' => 'Post Updated Successfully',
+                'alert-type' => 'success'
+            );
+
+
+        }
+        return Redirect()->back()->with($notification);
+    }
+
+
+
+    public function ntvPolicy(Request $request) {
+
+        $data = array();
+
+        $response = Http::get('https://brtk.net/wp-json/wp/v2/posts?categories=27&_embed&per_page=5');
+        /*        $response->body();*/
+        $json = $response->json();
+        foreach ($json as $item) {
+
+            $string = $item['content']['rendered'] . '<br>';
+            $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
+            if (preg_match_all("/$regexp/", $string, $matches, PREG_SET_ORDER)) {
+                $img_src = $matches[0][0];
+            }
+            $regex = "/<img[^>]+>/i";
+            $regex1 = '/href=["\']?([^"\'>]+)"/i';
+            $content = preg_replace($regex, ' ', $string);
+            $content1 = preg_replace($regex1, ' ', $content);
+            $url = $img_src;
+            $image_name = ( stristr($url, '?', true) ) ? stristr($url, '?', true) : $url;
+            $pos = strrpos($image_name, '/');
+            $image_name = substr($image_name, $pos + 1);
+            $extension = stristr($image_name, '.');
+
+            if ($extension == '.jpg' || $extension == '.png' || $extension == '.gif' || $extension == '.jpeg') {
+                $image_name = $image_name;
+            }
+
+            $img = public_path('image/postimg/'.$image_name);
+            file_put_contents($img, file_get_contents($url));
+
+            $data['title_tr'] = $item['title']['rendered'];
+            $data['slug'] = $item['slug'];
+            $data['details_tr'] = $content1;
+            $data['image'] = 'image/postimg/'.$image_name;
+            $data['category_id'] = 8;
+            $data['user_id'] = Auth::user()->id;
+            $data['source'] = 'BRTK';
+
+            DB::table('posts')->insert($data);
+
+            $notification = array(
+                'message' => 'Post Updated Successfully',
+                'alert-type' => 'success'
+            );
+
+
+        }
+        return Redirect()->back()->with($notification);
+    }
+
+
+
+
 }

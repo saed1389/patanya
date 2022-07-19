@@ -32,9 +32,8 @@ class ExtraController extends Controller
     public function SinglePost($slug){
         $post = DB::table('posts')
             ->join('categories','posts.category_id','categories.id')
-            ->join('subcategories','posts.subcategory_id','subcategories.id')
             ->join('users','posts.user_id','users.id')
-            ->select('posts.*','categories.category_en','categories.category_tr','subcategories.subcategory_en','subcategories.subcategory_tr','users.name')
+            ->select('posts.*','categories.category_en','categories.category_tr','users.name')
             ->where('posts.slug',$slug)->first();
         $adsHome = DB::table('ads2')->get();
         return view('main.single_post',compact('post', 'adsHome'));
