@@ -32,9 +32,9 @@
                 @foreach($post as $row)
                     <tr class="row-selectable odd">
                         <td>{{ $i++ }}</td>
-                        <td>{{ Str::limit($row->title_en, 20) }}</td>
-                        <td>{{ $row->category_en }}</td>
-                        <td>{{ $row->district_en }}</td>
+                        <td>{{ Str::limit(html_entity_decode($row->title_tr, 70)) }}</td>
+                        <td>{{ $row->category_tr }}</td>
+                        <td>{{ $row->district_tr }}</td>
                         <td><img src="{{ $row->image }}" alt="" style="width: 50px; height: 50px"></td>
                         <td>{{ \Carbon\Carbon::parse($row->post_date)->diffForHumans() }}</td>
 

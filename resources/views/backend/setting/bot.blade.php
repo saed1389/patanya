@@ -23,6 +23,18 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;"> 3 </th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;">BRTK </th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 194px;">Gundem </th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 133px;"><a class="btn btn-success" href="{{ route('ntvGundem.bot') }}">Generate</a></th>
+                </tr>
+                <tr>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;"> 3 </th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;">BRTK </th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 194px;">KKTC </th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 133px;"><a class="btn btn-success" href="{{ route('ntvKKTC.bot') }}">Generate</a></th>
+                </tr>
+                <tr>
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;"> 1 </th>
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;">BRTK </th>
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 194px;">Economy </th>
@@ -38,7 +50,7 @@
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;"> 3 </th>
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;">BRTK </th>
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 194px;">World </th>
-                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 133px;"><a class="btn btn-success" href="{{ route('ntvTurkey.bot') }}">Generate</a></th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 133px;"><a class="btn btn-success" href="{{ route('ntvWorld.bot') }}">Generate</a></th>
                 </tr>
                 {{--<tr>
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;"> 4 </th>
@@ -50,7 +62,7 @@
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;"> 5 </th>
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;">BRTK </th>
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 194px;">Sport </th>
-                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 133px;"><a class="btn btn-success" href="{{ route('ntvTurkey.bot') }}">Generate</a></th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 133px;"><a class="btn btn-success" href="{{ route('ntvSport.bot') }}">Generate</a></th>
                 </tr>
                 {{--<tr>
                     <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 111px;"> 6 </th>

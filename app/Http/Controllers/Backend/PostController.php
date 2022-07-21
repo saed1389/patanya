@@ -18,12 +18,10 @@ class PostController extends Controller
     public function Index() {
         $post = DB::table('posts')
             ->join('categories', 'posts.category_id', 'categories.id')
-            ->join('subcategories', 'posts.subcategory_id', 'subcategories.id')
             ->join('districts', 'posts.district_id', 'districts.id')
-            ->join('subdistricts', 'posts.subdistrict_id', 'subdistricts.id')
-            ->select('posts.*', 'categories.category_en', 'subcategories.subcategory_en', 'districts.district_en', 'subdistricts.subdistrict_en')
+            ->select('posts.*', 'categories.category_tr', 'districts.district_tr')
             ->orderBy('id', 'desc')
-            ->paginate(10);
+            ->paginate(20);
         return view('backend.post.index', compact('post'));
     }
     public function Create() {

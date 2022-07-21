@@ -212,6 +212,8 @@ Route::get('/bot/ntvWorld', [XmlDataController::class, 'ntvWorld'])->name('ntvWo
 Route::get('/bot/ntvHealth', [XmlDataController::class, 'ntvHealth'])->name('ntvHealth.bot');
 Route::get('/bot/ntvSport', [XmlDataController::class, 'ntvSport'])->name('ntvSport.bot');
 Route::get('/bot/ntvPolicy', [XmlDataController::class, 'ntvPolicy'])->name('ntvPolicy.bot');
+Route::get('/bot/ntvGundem', [XmlDataController::class, 'ntvGundem'])->name('ntvGundem.bot');
+Route::get('/bot/ntvKKTC', [XmlDataController::class, 'ntvKKTC'])->name('ntvKKTC.bot');
 
 //Special Post
 Route::get('/allSpecialPost', [SpecialPostController::class, 'Index'])->name('all.SpecialPost');
